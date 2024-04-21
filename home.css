@@ -488,6 +488,19 @@ Page Styles
     border-radius: 5%;
 }
 
+.institution {
+    font-size: x-large;
+}
+
+.department {
+    font-size:medium;
+}
+
+.institution-icon {
+    vertical-align: middle;
+    width: 9.5%;
+}
+
 .user-profile {
     padding-left: 50px;
     width: 500px;
@@ -556,6 +569,7 @@ Page Styles
 }
 
 .pg-title {
+    text-align: left;
     font-size: 18px;
     font-weight: 500;
     text-transform: uppercase;
@@ -565,6 +579,7 @@ Page Styles
 }
 
 .pg-sub-title {
+    text-align: left;
     margin-bottom: 10px;
     display: block;
     font-size: 12px;
@@ -572,6 +587,14 @@ Page Styles
     color: #999999;
     font-weight: 500;
     letter-spacing: 5px;
+}
+
+.float-left {
+    display: inline-block;
+}
+
+.float-right {
+    display: inline-block;
 }
 
 
@@ -692,11 +715,6 @@ body {
   padding: 0.25em 1em 0.2em 1em;
 }
 
-/* 導覽列整體設定 */
-.lang {
-    text-align: right;
-}
-
 /* 按鈕個別設定 */
 .lang .lang-item {
     display: inline-block;
@@ -717,4 +735,17 @@ body {
 .lang .lang-item:hover a {
     background-color: #004882; /* 這裡改成您希望的滑鼠移過去時的背景顏色 */
     color: #ffffff;
+}
+
+/* 語言列整體設定 */
+.lang {
+    display: block;
+}
+
+.tl-corner {
+    display: inline-block;
+}
+
+.tr-corner {
+    float: right;
 }

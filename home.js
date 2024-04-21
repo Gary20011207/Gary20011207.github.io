@@ -6,10 +6,17 @@ document.addEventListener("DOMContentLoaded", function() {
     if (lang === "zh-TW") {
         document.querySelector('.lang .ch').style.backgroundColor = '#004882'; // Dark Blue
         document.querySelector('.lang .en').style.backgroundColor = 'initial';
+        document.querySelector('.lang .ja').style.backgroundColor = 'initial';
         document.querySelector('.lang .ch a').style.color = '#ffffff';
     } else if (lang === "en") {
         document.querySelector('.lang .ch').style.backgroundColor = 'initial';
         document.querySelector('.lang .en').style.backgroundColor = '#004882'; // Dark Blue
+        document.querySelector('.lang .ja').style.backgroundColor = 'initial';
         document.querySelector('.lang .en a').style.color = '#ffffff';
+    } else if (lang === "ja") {
+        document.querySelector('.lang .ch').style.backgroundColor = 'initial'; 
+        document.querySelector('.lang .en').style.backgroundColor = 'initial';
+        document.querySelector('.lang .ja').style.backgroundColor = '#004882'; // Dark Blue
+        document.querySelector('.lang .ja a').style.color = '#ffffff';
     }
 });
