@@ -1,287 +1,521 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-    <title>私の履歴書</title>
-    <script src="home.js"></script>
-    <link rel="stylesheet" type="text/css" href="home.css">
-    <script src="https://kit.fontawesome.com/3310cf939e.js" crossorigin="anonymous"></script> <!-- New Version Font Awesome -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="陳冠宇 - 国立台湾大学データサイエンス修士課程、AI・機械学習・医療画像研究に注力">
+    <meta name="keywords" content="陳冠宇, Guan-Yu Chen, データサイエンス, AI, 機械学習, 台湾大学, TSMC">
+    <title>陳冠宇 | AI研究者 & ソフトウェアエンジニア</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-
 <body>
-    <div class="wraper">
-        <div class="container">
-            <div class="left-content p-30">
-                <div class="logo">
-                    <a href="index.html">
-                        <span><strong>私の&emsp;&emsp;&ensp;</strong></span>
-                        <span><strong>&ensp;&emsp;履歴書</strong></span>
-                    </a>
+    <div class="wrapper">
+        <!-- Header -->
+        <header class="header" id="header">
+            <nav class="nav-container">
+                <a href="#" class="logo">Gary Chen</a>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="#home" class="active">ホーム</a>
+                    <a href="#about">自己紹介</a>
+                    <a href="#experience">職歴</a>
+                    <a href="#education">学歴</a>
+                    <a href="#projects">プロジェクト</a>
+                    <a href="#skills">スキル</a>
+                    <a href="#contact">連絡先</a>
                 </div>
-                <div class="nav">
-                    <ul class="tab-title">
-                        <li class="active"><a href="javascript:;" data-tablink="one"><strong>トップページ</a></strong></li>
-                        <li><a href="javascript:;" data-tablink="two"><strong>自叙伝</strong></a></li>
-                        <li><a href="javascript:;" data-tablink="three"><strong>学歴</strong></a></li>
-                        <li><a href="javascript:;" data-tablink="four"><strong>職務経歴</strong></a></li>
-                        <li><a href="javascript:;" data-tablink="five"><strong>連絡先</strong></a></li>
-                    </ul>
+                <div class="nav-right">
+                    <div class="lang-switcher">
+                        <a href="index.html">中</a>
+                        <a href="index-en.html">EN</a>
+                        <a href="index-ja.html" class="active">日</a>
+                    </div>
+                    <div class="mobile-menu-btn" id="mobile-menu-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
-                <div class="left-footer">
-                    <div class="copy-rights">Copyright &copy; 
-                        2024 All Rights Reserved.</div>
-                </div>
+            </nav>
+        </header>
 
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <p class="hero-greeting">はじめまして、</p>
+                    <h1 class="hero-name">陳冠宇</h1>
+                    <p class="hero-title">AI研究者 & ソフトウェアエンジニア</p>
+                    <p class="hero-description">
+                        国立台湾大学データサイエンス修士課程に在籍し、
+                        医療AI、大規模言語モデル、連合学習の研究に取り組んでいます。
+                        TSMCでのR&Dインターン経験を持ち、AIの実用化に情熱を注いでいます。
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">4.22</div>
+                            <div class="stat-label">修士GPA</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">1位</div>
+                            <div class="stat-label">学科順位</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">3+</div>
+                            <div class="stat-label">研究経験</div>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> お問い合わせ
+                        </a>
+                        <a href="#experience" class="btn btn-secondary">
+                            <i class="fas fa-briefcase"></i> 経歴を見る
+                        </a>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/Gary20011207" target="_blank" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/%E5%86%A0%E5%AE%87-%E9%99%B3-253281244/" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:Gary304666@gmail.com" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-image-wrapper">
+                        <img src="Head.jpg" alt="陳冠宇">
+                    </div>
+                </div>
             </div>
-            <div class="main-content">
+        </section>
 
-                <div id="one" class="tab-inner">
-                    <div class="section1 p-30" id="Home">
-                        <div class="sec-title">
-                            <div class="tl-corner">
-                                <div class="pg-sub-title">トップページ</div>
-                                <div class="pg-title">私のプロフィール</div>
-                                </div>
-                                <div class="tr-corner">
-                                <div class="lang">
-                                    <div class="lang-item ch" li="chinese"><a href="index.html"><strong>繁體中文</strong></a></div>
-                                    <div class="lang-item en" li="english"><a href="index-en.html"><strong>English</strong></a></div>
-                                    <div class="lang-item ja" li="japanese"><a href="index-ja.html"><strong>日本語</strong></a></div>
-                                </div>
-                                </div>
-                        </div>
-                        <div class="d-flex-align-center">
-                            <div class="user-img flex-1"><img class="headshot" src="Head.jpg"></div>
-                            <div class="user-profile flex-1">
-                                <div class="pro-details">
-                                    <div class="name">チェン・グァンユウ</div>
-                                    <div class="role">軟體開發のインターン / データ分析のインターン</div>
-
-                                </div>
-                                <div class="text">陽気な一日を過ごしましょう～</div>
-                                <div class="pr-list">
-                                    <ul>
-                                        <li><i class="fa fa-calendar" aria-hidden="true"></i> 平成 13 年 12 月 7 日</li>
-                                        <li><i class="fa fa-phone" aria-hidden="true"></i> 0963517040</li>
-                                        <li><i class="fa fa-envelope" aria-hidden="true"></i> <a
-                                                href="mailto:Gary304666@gmail.com">Gary304666@gmail.com</a></li>
-                                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> 台湾 桃園県
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="social-icons-head">
-                                    <ul>
-                                        <li><a href="https://github.com/Gary20011207"><i class="fa-brands fa-github"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li><a
-                                                href="https://www.linkedin.com/in/%E5%86%A0%E5%AE%87-%E9%99%B3-253281244/"><i
-                                                    class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-                                        <li><a href="https://www.instagram.com/gary20011207/"><i class="fa fa-instagram"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li><a href="https://www.facebook.com/DivineXzone/"><i class="fa fa-facebook"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li><a href="https://twitter.com/DivineXzone"><i class="fa fa-twitter"
-                                                    aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-
+        <!-- About Section -->
+        <section class="section about" id="about">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-label">自己紹介</span>
+                    <h2 class="section-title">プロフィール</h2>
+                    <p class="section-subtitle">AI技術の無限の可能性を探求し、研究成果を実際の場面に応用することに情熱を注いでいます</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>コードからソリューションへ</h3>
+                        <p>
+                            現在、国立台湾大学データサイエンス学位プログラム（中央研究院との連携）に在籍し、
+                            AI応用統合研究室で研究を行っています。医療マルチモーダル大規模言語モデル（Medical MLLMs）の
+                            継続的パラメータ効率的ファインチューニング（Continual PEFT）に焦点を当てています。
+                        </p>
+                        <p>
+                            長庚大学で情報工学の学士号を取得し、学科1位（GPA 3.94/4.00）で卒業、
+                            2024年度CSIE卒業生代表を務めました。確固たる基礎と継続的な学習が
+                            優れたエンジニアになるための鍵だと信じています。
+                        </p>
+                        <div class="about-highlights">
+                            <div class="highlight-item">
+                                <i class="fas fa-brain"></i>
+                                <span>医療AI</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-robot"></i>
+                                <span>大規模言語モデル</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-shield-halved"></i>
+                                <span>連合学習</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-microchip"></i>
+                                <span>GPUアクセラレーション</span>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div id="two" class="tab-inner">
-                    <div class="section1 p-30" id="Home">
-                        <div class="sec-title">
-                            <div class="pg-sub-title">ページ</div>
-                            <div class="pg-title">自叙伝</div>
-                        </div>
-                        <div class="d-flex-align-center">
-                            <div class="user-profile flex-1">
-                                <div class="pro-details">
-                                    <div class="name">Guan-Yu Chen (陳冠宇)</div>
-                                    <div class="role">Software Engineer</div>
-
+                    <div class="about-image">
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h3><i class="fas fa-code"></i> 研究分野</h3>
+                                <div class="skill-items">
+                                    <span class="skill-item">医療画像解析</span>
+                                    <span class="skill-item">マルチモーダル学習</span>
+                                    <span class="skill-item">継続学習</span>
+                                    <span class="skill-item">連合学習</span>
+                                    <span class="skill-item">LLMファインチューニング</span>
                                 </div>
-                                <div class="text">各位教授們您好，非常感謝教授們願意給我這次的面試機會，我是陳冠宇，就讀於長庚大學資訊工程學系，在學期間我認真學習系上的專業課程，培養理論及實作的能力，最終得到系排名第二的成績，也被遴選為長庚大學工學院榮譽學生，我也有參加CPE來訓練使用程式解決問題的能力，獲得7%的排名。
-
-                                    在大二時我參與台灣醫療科技展，過程中聽HST的演講，提到「有了AI之後，一位30歲的醫師立刻擁有50歲老醫師般的經驗。」讓我認知到AI在醫院的價值以及前景，啟蒙我對於這方面的興趣。
-                                    
-                                    大二下時我希望能學習更多的實務經驗，便應徵資訊中心網路系統組的工讀，負責網路監控、維修及網路機房維護，每當節點或設備異常時，便需要馬上處理排除問題，除了更理解學校網路的架構，也培養與User溝通協調、謹慎思考問題所在並排除的理性思維。
-                                    
-                                    大二下時我加入「人工智慧與多媒體應用研究室」，協助碩班學長蒐集資料、繪製Ground Truth等...，大三時參與魏教授與長庚醫院的計劃，協助陳醫師開發「兒童精細動作評估系統」。
-                                    
-                                    大三暑假時我前往「早期療育中心」實習，進一步驗證系統的可行性，使其相關人員能夠應用於收案，為了收案之方便性，我們添加了粗大動作測驗錄製功能並上傳至資料庫，供後續合作對象進行AI分析。
-                                    
-                                    在專題研究中，我們的主要目標是設計一電子化測驗流程，藉由AI及電腦視覺來計算出相對客觀的分數，降低人工評估的偏誤，並且配合資料庫系統來協助他們進行收案。我們設計了三個題目，分別是圖形仿畫、路徑內臨摹、以及文字謄寫。
-                                    
-                                    圖形仿畫我們採用CNN模型來提取特徵，根據我們的評分項目，模型會輸出18個細項的符合機率值，並根據我們設定的threshold來給與分數。
-                                    
-                                    路徑內臨摹我們採用IoU的方式來評分，藉由計算測驗圖畫筆筆觸在路徑內外的比值，利用公式來計算出介於0到1的分數。
-                                    
-                                    文字謄寫的部分，我們會先對測驗字進行OCR比對，若與標準字相符便得分，接著會計算兩者筆劃的差值比例來給與分數，最後則是比對圖形相似度，目前預計是採用HOG比對兩者特徵相似度。
-                                    
-                                    在讀書及研究計畫上，我將會以人工智慧領域的課程為主軸，並主動修習跨領域的專業課程，並且我也會積極參與實驗室的計劃，參與研討會及產學合作，拓展實務經驗，目前我有興趣的領域為人工智慧與生物資訊相關。希望研究所也能持續朝這方面精進，為學術圈做出一點貢獻！</div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="three" class="tab-inner">
-                    <div class="section1 p-30" id="Home">
-                        <div class="sec-title">
-                            <div class="pg-sub-title">ページ</div>
-                            <div class="pg-title">学歴</div>
-                        </div>
-                        <ul class="timeline">
-                            <li class="timeline-event">
-                              <label class="timeline-event-icon"></label>
-                              <div class="timeline-event-copy">
-                                <p class="timeline-event-thumbnail">September 2017 - June 2020</p>
-                                <h3>國立中央大學附屬中壢高級中學</h3>
-                                <h4>自然組 （第三類組）</h4>
-                                <p><strong>Schwerpunkt: Frontend-Entwicklung</strong><br>Entwickeln von anspruchsvollen, animierten, responsive und adaptive Webseiten mit HTML5, SCSS, jQuery; für alle Browser, optimiert für Desktop, Notebook, Smartphones und Tablets (iOS, Android, Windows).</p>
-                                <p><strong>Projektmanagement mit Scrum</strong><br>Ständiges Verbessern des agilen Entwicklungsprozesses beispielsweise durch Grunt, Yeoman, GIT, JIRA und BrowserStack.</p>
-                              </div>
-                            </li>
-                            <li class="timeline-event">
-                              <label class="timeline-event-icon"></label>
-                              <div class="timeline-event-copy">
-                                <p class="timeline-event-thumbnail">September 2020 - June 2024</p>
-                                <h3>長庚大學</h3>
-                                <h4>資訊工程學系</h4>
-                                <p><strong>Schwerpunkt: Frontend-Entwicklung</strong><br>Entwickeln von anspruchsvollen, animierten, responsive und adaptive Webseiten mit HTML5, SCSS, jQuery; für alle Browser, optimiert für Desktop, Notebook, Smartphones und Tablets (iOS, Android, Windows).</p>
-                                <p><strong>Projektmanagement mit Scrum</strong><br>Ständiges Verbessern des agilen Entwicklungsprozesses beispielsweise durch Grunt, Yeoman, GIT, JIRA und BrowserStack.</p>
-                              </div>
-                            </li>
-                            <li class="timeline-event">
-                              <label class="timeline-event-icon"></label>
-                              <div class="timeline-event-copy">
-                                <p class="timeline-event-thumbnail">September 2024 - Present</p>
-                                <h3>國立臺灣大學</h3>
-                                <h4>資料科學學位學程</h4>
-                                <p><strong>Schwerpunkt: Frontend-Entwicklung</strong><br>Entwickeln von anspruchsvollen, animierten, responsive und adaptive Webseiten mit HTML5, SCSS, jQuery; für alle Browser, optimiert für Desktop, Notebook, Smartphones und Tablets (iOS, Android, Windows).</p>
-                                <p><strong>Projektmanagement mit Scrum</strong><br>Ständiges Verbessern des agilen Entwicklungsprozesses beispielsweise durch Grunt, Yeoman, GIT, JIRA und BrowserStack.</p>
-                              </div>
-                            </li>
-                    </div>
-                </div>
-
-                <div id="four" class="tab-inner">
-                    <div class="section1 p-30" id="Home">
-                        <div class="sec-title">
-                            <div class="pg-sub-title">ページ</div>
-                            <div class="pg-title">職務経歴</div>
-                        </div>
-                        <div class="d-flex-align-center">
-                            <div class="user-profile flex-1">
-                                <div class="pro-details">
-                                    <div class="name">Guan-Yu Chen (陳冠宇)</div>
-                                    <div class="role">Software Engineer</div>
-
-                                </div>
-                                <div class="text">行くぞ生徒たち！物の哀れを知りたまえ！</div>
-                                <div class="pr-list">
-                                    <ul>
-                                        <li><i class="fa fa-calendar" aria-hidden="true"></i> 7th December, 2001</li>
-                                        <li><i class="fa fa-phone" aria-hidden="true"></i> 0963517040</li>
-                                        <li><i class="fa fa-envelope" aria-hidden="true"></i> <a
-                                                href="mailto:Gary304666@gmail.com">Gary304666@gmail.com</a></li>
-                                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> Taoyuan City, Taiwan
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="social-icons-head">
-                                    <ul>
-                                        <li><a
-                                                href="https://www.linkedin.com/in/%E5%86%A0%E5%AE%87-%E9%99%B3-253281244/"><i
-                                                    class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-                                        <li><a href="https://www.instagram.com/gary20011207/"><i class="fa fa-instagram"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li><a href="https://www.facebook.com/DivineXzone/"><i class="fa fa-facebook"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li><a href="https://twitter.com/DivineXzone"><i class="fa fa-twitter"
-                                                    aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="five" class="tab-inner">
-                    <div class="section1 p-30" id="Home">
-                        <div class="sec-title">
-                            <div class="pg-sub-title">ページ</div>
-                            <div class="pg-title">連絡先</div>
-                        </div>
-                        <div class="d-flex-align-center">
-                            <div class="user-profile flex-1">
-                                <div class="pro-details">
-                                    <div class="name">Guan-Yu Chen (陳冠宇)</div>
-                                    <div class="role">Software Engineer</div>
-
-                                </div>
-                                <div class="text">行くぞ生徒たち！物の哀れを知りたまえ！</div>
-                                <div class="pr-list">
-                                    <ul>
-                                        <li><i class="fa fa-calendar" aria-hidden="true"></i> 7th December, 2001</li>
-                                        <li><i class="fa fa-phone" aria-hidden="true"></i> 0963517040</li>
-                                        <li><i class="fa fa-envelope" aria-hidden="true"></i> <a
-                                                href="mailto:Gary304666@gmail.com">Gary304666@gmail.com</a></li>
-                                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> Taoyuan City, Taiwan
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="social-icons-head">
-                                    <ul>
-                                        <li><a
-                                                href="https://www.linkedin.com/in/%E5%86%A0%E5%AE%87-%E9%99%B3-253281244/"><i
-                                                    class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-                                        <li><a href="https://www.instagram.com/gary20011207/"><i class="fa fa-instagram"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li><a href="https://www.facebook.com/DivineXzone/"><i class="fa fa-facebook"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li><a href="https://twitter.com/DivineXzone"><i class="fa fa-twitter"
-                                                    aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="section experience" id="experience">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-label">職務経歴</span>
+                    <h2 class="section-title">専門的経験</h2>
+                    <p class="section-subtitle">研究から産業まで、多様な実務経験を蓄積</p>
+                </div>
+                <div class="experience-grid">
+                    <!-- TSMC -->
+                    <div class="experience-card">
+                        <div class="experience-logo">
+                            <img src="assets/tsmc-logo.png" alt="TSMC" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-microchip\' style=\'font-size:1.5rem;color:var(--primary-color)\'></i>';">
+                        </div>
+                        <div class="experience-content">
+                            <h3>R&Dインターン</h3>
+                            <div class="experience-company">台湾積体電路製造（TSMC）</div>
+                            <div class="experience-meta">
+                                <span><i class="fas fa-building"></i> Design Technology Platform (DTP)</span>
+                                <span><i class="fas fa-calendar"></i> 2025年7月 - 8月</span>
+                            </div>
+                            <div class="experience-description">
+                                <ul>
+                                    <li><strong>2025 DTP Intern Conference Top 10入選</strong>、プロジェクト：「LLM-Driven Automation Framework for LVS Deck Coding Copilot and Layout Pattern Constraint Generation」</li>
+                                    <li>Technology File Automation & Physical Design Analysis部門にて、先端プロセスのDRC/LVSルールデッキの自動化ワークフローを検証・加速するAI/MLモデルを開発・適用</li>
+                                    <li>マルチエージェントシステムとLoRAチューニングLLMを活用したAIフレームワークを設計、レイアウトパターンから内部仕様設定を自動生成し、主要EDAベンダープラットフォーム間でルールデッキ構文を変換</li>
+                                </ul>
+                            </div>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">PyTorch</span>
+                                <span class="tech-tag">LangChain</span>
+                                <span class="tech-tag">LoRA</span>
+                                <span class="tech-tag">EDA</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NTU RA -->
+                    <div class="experience-card">
+                        <div class="experience-logo">
+                            <img src="SL_NTU.png" alt="NTU">
+                        </div>
+                        <div class="experience-content">
+                            <h3>リサーチアシスタント</h3>
+                            <div class="experience-company">国立台湾大学 情報工学科</div>
+                            <div class="experience-meta">
+                                <span><i class="fas fa-flask"></i> AI応用統合研究室</span>
+                                <span><i class="fas fa-calendar"></i> 2024年9月 - 現在</span>
+                            </div>
+                            <div class="experience-description">
+                                <ul>
+                                    <li>医療MLLMsのContinual PEFT研究を実施、モデルの適応性と効率を向上</li>
+                                    <li>台大病院のハンドヘルド超音波用セグメンテーションモデルを開発、リアルタイム医療画像処理パイプラインを最適化</li>
+                                    <li>成功大学病院との連合学習によるAI協業を統合、プライバシーを保護した分散トレーニングを実現</li>
+                                </ul>
+                            </div>
+                            <div class="tech-tags">
+                                <span class="tech-tag">PyTorch</span>
+                                <span class="tech-tag">CUDA</span>
+                                <span class="tech-tag">Docker</span>
+                                <span class="tech-tag">NVIDIA FLARE</span>
+                                <span class="tech-tag">OpenCV</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CGMH RA -->
+                    <div class="experience-card">
+                        <div class="experience-logo">
+                            <img src="WL_CGUMF.png" alt="CGMH">
+                        </div>
+                        <div class="experience-content">
+                            <h3>リサーチアシスタント</h3>
+                            <div class="experience-company">林口長庚記念病院</div>
+                            <div class="experience-meta">
+                                <span><i class="fas fa-hospital"></i> 早期療育研究センター</span>
+                                <span><i class="fas fa-calendar"></i> 2024年1月 - 2025年1月</span>
+                            </div>
+                            <div class="experience-description">
+                                <ul>
+                                    <li>早期療育センター向けに微細運動スキル評価用Androidアプリを開発、コンピュータビジョンによる自動ケース取り込みとFirebaseによるデジタル管理を統合し、プロセス効率を50%以上向上</li>
+                                    <li>医師と共同でBOT-2ベースの標準化評価手法を設計、デジタルテスト向けに厳密に最適化し、信頼性と微細運動スキル評価精度を20%向上</li>
+                                    <li>二次ベジェ曲線を用いたストロークフィッティングを最適化、リアルタイム処理でO(n)時間計算量を達成</li>
+                                </ul>
+                            </div>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Android</span>
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">OpenCV</span>
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">Firebase</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="section education" id="education">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-label">学歴</span>
+                    <h2 class="section-title">学術背景</h2>
+                    <p class="section-subtitle">確固たる学術訓練で、研究とエンジニアリングの強固な基盤を構築</p>
+                </div>
+                <div class="education-grid">
+                    <!-- NTU -->
+                    <div class="education-card">
+                        <div class="education-logo">
+                            <img src="SL_NTU.png" alt="NTU">
+                        </div>
+                        <div class="education-content">
+                            <h3><a href="https://www.ntu.edu.tw/" target="_blank">国立台湾大学</a></h3>
+                            <p class="education-degree">データサイエンス修士課程（中央研究院との連携）</p>
+                            <div class="education-details">
+                                <span class="gpa"><i class="fas fa-star"></i> GPA: 4.22/4.30</span>
+                                <span class="rank"><i class="fas fa-trophy"></i> 学科順位: 1/13</span>
+                            </div>
+                        </div>
+                        <div class="education-period">2024年9月 - 現在</div>
+                    </div>
+
+                    <!-- CGU -->
+                    <div class="education-card">
+                        <div class="education-logo">
+                            <img src="SL_CGU.png" alt="CGU">
+                        </div>
+                        <div class="education-content">
+                            <h3><a href="https://www.cgu.edu.tw/" target="_blank">長庚大学</a></h3>
+                            <p class="education-degree">情報工学科 学士</p>
+                            <div class="education-details">
+                                <span class="gpa"><i class="fas fa-star"></i> GPA: 3.94/4.00</span>
+                                <span class="rank"><i class="fas fa-trophy"></i> 学科順位: 1/67（卒業生代表）</span>
+                            </div>
+                        </div>
+                        <div class="education-period">2020年9月 - 2024年6月</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section projects" id="projects">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-label">プロジェクト</span>
+                    <h2 class="section-title">主要プロジェクト</h2>
+                    <p class="section-subtitle">低レベルシステムから高性能コンピューティングまで、包括的な技術力を実証</p>
+                </div>
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>高性能並列コンピューティング & GPUアクセラレーション</h3>
+                            <span class="project-year">2025</span>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>共有メモリとパディング技術を活用してCUDAカーネルの行列演算を最適化、shared memory bank conflictsを解決し、Nsight Computeで性能指標を分析</li>
+                                <li>MPIとOpenMPを使用して分散Attentionメカニズムと畳み込みアルゴリズムを実装、AVX-512ベクトル化とメモリアライメントでスループットを向上</li>
+                            </ul>
+                            <div class="tech-tags">
+                                <span class="tech-tag">C/C++</span>
+                                <span class="tech-tag">CUDA</span>
+                                <span class="tech-tag">MPI</span>
+                                <span class="tech-tag">OpenMP</span>
+                                <span class="tech-tag">AVX-512</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>リアルタイムOSスケジューラ設計 & Linuxカーネル修正</h3>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>µC/OS-IIカーネルにリアルタイムスケジューリングアルゴリズム（EDF、Rate Monotonic）とPriority Inheritance Protocol（PIP）を実装、タスク同期を管理し優先度逆転を解決</li>
+                                <li>Linux Kernel（v5.15）ソースコードを修正してカスタムシステムコールを登録、ロード可能カーネルモジュール（LKM）を開発してカーネル空間との相互作用を促進</li>
+                            </ul>
+                            <div class="tech-tags">
+                                <span class="tech-tag">C</span>
+                                <span class="tech-tag">µC/OS-II</span>
+                                <span class="tech-tag">Linux Kernel</span>
+                                <span class="tech-tag">System Calls</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>BIG8051マイコンプロジェクト：GLCDスネークゲーム</h3>
+                            <span class="project-year">2023</span>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>C言語で低レベルGLCDドライバを作成、I/Oポートと制御信号（RS/RW）を直接操作してページアドレッシングを実装し、128x64ビットマップグラフィックスをレンダリング</li>
+                                <li>タイマー割り込みとGPIOを活用して有限状態機械を実装、リアルタイムゲームロジック、精密な音声周波数生成、ベアメタルハードウェアでの応答性の高いユーザー入力処理を実現</li>
+                            </ul>
+                            <div class="tech-tags">
+                                <span class="tech-tag">C</span>
+                                <span class="tech-tag">Assembly</span>
+                                <span class="tech-tag">GLCD</span>
+                                <span class="tech-tag">GPIO</span>
+                                <span class="tech-tag">Interrupts</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section skills" id="skills">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-label">技術スキル</span>
+                    <h2 class="section-title">専門スキル</h2>
+                    <p class="section-subtitle">低レベルシステムからアプリケーション開発まで包括的な技術スタック</p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3><i class="fas fa-code"></i> プログラミング言語</h3>
+                        <div class="skill-items">
+                            <span class="skill-item">Python</span>
+                            <span class="skill-item">C/C++</span>
+                            <span class="skill-item">Java</span>
+                            <span class="skill-item">CUDA</span>
+                            <span class="skill-item">Assembly</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-brain"></i> AI/MLフレームワーク</h3>
+                        <div class="skill-items">
+                            <span class="skill-item">PyTorch</span>
+                            <span class="skill-item">TensorFlow</span>
+                            <span class="skill-item">Keras</span>
+                            <span class="skill-item">LangChain</span>
+                            <span class="skill-item">Unsloth</span>
+                            <span class="skill-item">NVIDIA FLARE</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-server"></i> システム & ツール</h3>
+                        <div class="skill-items">
+                            <span class="skill-item">Docker</span>
+                            <span class="skill-item">Linux</span>
+                            <span class="skill-item">Git</span>
+                            <span class="skill-item">MPI</span>
+                            <span class="skill-item">OpenMP</span>
+                            <span class="skill-item">NCHC</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-mobile-alt"></i> アプリ開発</h3>
+                        <div class="skill-items">
+                            <span class="skill-item">Android Studio</span>
+                            <span class="skill-item">OpenCV</span>
+                            <span class="skill-item">Firebase</span>
+                            <span class="skill-item">Scikit-learn</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section contact" id="contact">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-label">連絡先</span>
+                    <h2 class="section-title">お問い合わせ</h2>
+                    <p class="section-subtitle">コラボレーションや学術交流のご連絡をお待ちしております</p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>お気軽にご連絡ください</h3>
+                        <p>研究協力、就職機会、または技術について話し合いたい場合など、お気軽にご連絡ください！</p>
+                        <div class="contact-items">
+                            <div class="contact-item">
+                                <div class="contact-item-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-item-content">
+                                    <h4>メール</h4>
+                                    <a href="mailto:Gary304666@gmail.com">Gary304666@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-item-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="contact-item-content">
+                                    <h4>電話</h4>
+                                    <p>+886 963-517-040</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-item-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-item-content">
+                                    <h4>所在地</h4>
+                                    <p>台湾、台北市</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-social">
+                            <h4>ソーシャルメディア</h4>
+                            <div class="social-links">
+                                <a href="https://github.com/Gary20011207" target="_blank" title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/%E5%86%A0%E5%AE%87-%E9%99%B3-253281244/" target="_blank" title="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://www.instagram.com/gary20011207/" target="_blank" title="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://www.facebook.com/DivineXzone/" target="_blank" title="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-map">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.0027456789!2d121.5397!3d25.0173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442aa27539b4a33%3A0x7f893e1d3f9c3e45!2z5ZyL56uL5Y-w54Gj5aSn5a24!5e0!3m2!1sja!2stw!4v1234567890"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-content">
+                    <div class="footer-logo">Gary Chen</div>
+                    <div class="footer-social">
+                        <a href="https://github.com/Gary20011207" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/%E5%86%A0%E5%AE%87-%E9%99%B3-253281244/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:Gary304666@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Guan-Yu Chen. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scroll to Top Button -->
+        <button class="scroll-top" id="scroll-top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
     </div>
 
-    <script>
-        function showTab(tabId) {
-            // Hide all tabs
-            var tabs = document.querySelectorAll('.tab-inner');
-            tabs.forEach(function (tab) {
-                tab.style.display = 'none';
-            });
-
-            // Show the selected tab
-            var selectedTab = document.getElementById(tabId);
-            if (selectedTab) {
-                selectedTab.style.display = 'block';
-            }
-        }
-
-        // Attach click event listeners to navigation links
-        document.querySelectorAll('.tab-title a').forEach(function (link) {
-            link.addEventListener('click', function () {
-                var tabId = link.getAttribute('data-tablink');
-                showTab(tabId);
-            });
-        });
-
-        // Show the initial tab (Home) when the page loads
-        showTab('one');
-    </script>
+    <script src="home.js"></script>
 </body>
-
 </html>

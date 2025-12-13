@@ -1,288 +1,521 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>My Resume</title>
-    <script src="home.js"></script>
-    <link rel="stylesheet" type="text/css" href="home.css">
-    <script src="https://kit.fontawesome.com/3310cf939e.js" crossorigin="anonymous"></script> <!-- New Version Font Awesome -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guan-Yu Chen - M.S. student in Data Science at National Taiwan University, focusing on AI, Machine Learning, and Medical Imaging Research">
+    <meta name="keywords" content="Guan-Yu Chen, Gary Chen, Data Science, AI, Machine Learning, NTU, TSMC">
+    <title>Guan-Yu Chen | AI Researcher & Software Engineer</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-
 <body>
-    <div class="wraper">
-        <div class="container">
-            <div class="left-content p-30">
-                <div class="logo">
-                    <a href="index-en.html">
-                        <span><strong>My&ensp;&ensp;&ensp;&ensp;&ensp;</strong></span>
-                        <span><strong>Resume</strong></span>
-                    </a>
+    <div class="wrapper">
+        <!-- Header -->
+        <header class="header" id="header">
+            <nav class="nav-container">
+                <a href="#" class="logo">Gary Chen</a>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="#home" class="active">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#education">Education</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#contact">Contact</a>
                 </div>
-                <div class="nav">
-                    <ul class="tab-title">
-                        <li class="active"><a href="javascript:;" data-tablink="one"><strong>Home</strong></a></li>
-                        <li><a href="javascript:;" data-tablink="two"><strong>Autobiography</strong></a></li>
-                        <li><a href="javascript:;" data-tablink="three"><strong>Education</strong></a></li>
-                        <li><a href="javascript:;" data-tablink="four"><strong>Work Experience</strong></a></li>
-                        <li><a href="javascript:;" data-tablink="five"><strong>Contact</strong></a></li>
-                    </ul>
+                <div class="nav-right">
+                    <div class="lang-switcher">
+                        <a href="index.html">中</a>
+                        <a href="index-en.html" class="active">EN</a>
+                        <a href="index-ja.html">日</a>
+                    </div>
+                    <div class="mobile-menu-btn" id="mobile-menu-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
-                <div class="left-footer">
-                    <div class="copy-rights">Copyright &copy; 
-                        2024 All Rights Reserved.</div>
-                </div>
+            </nav>
+        </header>
 
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <p class="hero-greeting">Hi, I'm</p>
+                    <h1 class="hero-name">Guan-Yu Chen</h1>
+                    <p class="hero-title">AI Researcher & Software Engineer</p>
+                    <p class="hero-description">
+                        M.S. student in Data Science at National Taiwan University,
+                        specializing in Medical AI, Large Language Models, and Federated Learning.
+                        Former R&D Intern at TSMC, passionate about applying AI to real-world solutions.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">4.22</div>
+                            <div class="stat-label">MS GPA</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">1st</div>
+                            <div class="stat-label">Dept. Rank</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">3+</div>
+                            <div class="stat-label">Research Exp.</div>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Contact Me
+                        </a>
+                        <a href="#experience" class="btn btn-secondary">
+                            <i class="fas fa-briefcase"></i> View Experience
+                        </a>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/Gary20011207" target="_blank" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/%E5%86%A0%E5%AE%87-%E9%99%B3-253281244/" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:Gary304666@gmail.com" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-image-wrapper">
+                        <img src="Head.jpg" alt="Guan-Yu Chen">
+                    </div>
+                </div>
             </div>
-            <div class="main-content">
+        </section>
 
-                <div id="one" class="tab-inner">
-                    <div class="section1 p-30" id="Home">
-                        <div class="sec-title">
-                            <div class="tl-corner">
-                                <div class="pg-sub-title">Home</div>
-                                <div class="pg-title">My Profile</div>
-                                </div>
-                                <div class="tr-corner">
-                                <div class="lang">
-                                    <div class="lang-item ch" li="chinese"><a href="index.html"><strong>繁體中文</strong></a></div>
-                                    <div class="lang-item en" li="english"><a href="index-en.html"><strong>English</strong></a></div>
-                                    <div class="lang-item ja" li="japanese"><a href="index-ja.html"><strong>日本語</strong></a></div>
-                                </div>
-                                </div>
-                        </div>
-
-                        <div class="d-flex-align-center">
-                            <div class="user-img flex-1"><img class="headshot" src="Head.jpg"></div>
-                            <div class="user-profile flex-1">
-                                <div class="pro-details">
-                                    <div class="name">Guan-Yu Chen</div>
-                                    <div class="role">Software Engineer Intern / Data Scientist Intern</div>
-
-                                </div>
-                                <div class="text">In solitude, where we are least alone.</div>
-                                <div class="pr-list">
-                                    <ul>
-                                        <li><i class="fa fa-calendar" aria-hidden="true"></i> 7th December, 2001</li>
-                                        <li><i class="fa fa-phone" aria-hidden="true"></i> 0963517040</li>
-                                        <li><i class="fa fa-envelope" aria-hidden="true"></i> <a
-                                                href="mailto:Gary304666@gmail.com">Gary304666@gmail.com</a></li>
-                                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> Taoyuan City, Taiwan
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="social-icons-head">
-                                    <ul>
-                                        <li><a href="https://github.com/Gary20011207"><i class="fa-brands fa-github"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li><a
-                                                href="https://www.linkedin.com/in/%E5%86%A0%E5%AE%87-%E9%99%B3-253281244/"><i
-                                                    class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-                                        <li><a href="https://www.instagram.com/gary20011207/"><i class="fa fa-instagram"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li><a href="https://www.facebook.com/DivineXzone/"><i class="fa fa-facebook"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li><a href="https://twitter.com/DivineXzone"><i class="fa fa-twitter"
-                                                    aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-
+        <!-- About Section -->
+        <section class="section about" id="about">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-label">About Me</span>
+                    <h2 class="section-title">Introduction</h2>
+                    <p class="section-subtitle">Passionate about exploring the limitless possibilities of AI and applying research to real-world scenarios</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>From Code to Solutions</h3>
+                        <p>
+                            I'm currently pursuing my M.S. in Data Science at National Taiwan University (with Academia Sinica),
+                            conducting research at the AI Application and Integration Lab. My focus is on Continual Parameter-Efficient
+                            Fine-Tuning (PEFT) for Medical Multimodal Large Language Models (MLLMs).
+                        </p>
+                        <p>
+                            I graduated with a B.S. in Computer Science from Chang Gung University, ranking 1st in my department
+                            (GPA 3.94/4.00) and serving as the Valedictorian of CSIE 2024. I believe that a solid foundation
+                            and continuous learning are key to becoming an excellent engineer.
+                        </p>
+                        <div class="about-highlights">
+                            <div class="highlight-item">
+                                <i class="fas fa-brain"></i>
+                                <span>Medical AI</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-robot"></i>
+                                <span>Large Language Models</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-shield-halved"></i>
+                                <span>Federated Learning</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-microchip"></i>
+                                <span>GPU Acceleration</span>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div id="two" class="tab-inner">
-                    <div class="section1 p-30" id="Home">
-                        <div class="sec-title">
-                            <div class="pg-sub-title">Page</div>
-                            <div class="pg-title">Autobiography</div>
-                        </div>
-                        <div class="d-flex-align-center">
-                            <div class="user-profile flex-1">
-                                <div class="pro-details">
-                                    <div class="name">Guan-Yu Chen (陳冠宇)</div>
-                                    <div class="role">Software Engineer</div>
-
+                    <div class="about-image">
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h3><i class="fas fa-code"></i> Research Areas</h3>
+                                <div class="skill-items">
+                                    <span class="skill-item">Medical Image Analysis</span>
+                                    <span class="skill-item">Multimodal Learning</span>
+                                    <span class="skill-item">Continual Learning</span>
+                                    <span class="skill-item">Federated Learning</span>
+                                    <span class="skill-item">LLM Fine-tuning</span>
                                 </div>
-                                <div class="text">各位教授們您好，非常感謝教授們願意給我這次的面試機會，我是陳冠宇，就讀於長庚大學資訊工程學系，在學期間我認真學習系上的專業課程，培養理論及實作的能力，最終得到系排名第二的成績，也被遴選為長庚大學工學院榮譽學生，我也有參加CPE來訓練使用程式解決問題的能力，獲得7%的排名。
-
-                                    在大二時我參與台灣醫療科技展，過程中聽HST的演講，提到「有了AI之後，一位30歲的醫師立刻擁有50歲老醫師般的經驗。」讓我認知到AI在醫院的價值以及前景，啟蒙我對於這方面的興趣。
-                                    
-                                    大二下時我希望能學習更多的實務經驗，便應徵資訊中心網路系統組的工讀，負責網路監控、維修及網路機房維護，每當節點或設備異常時，便需要馬上處理排除問題，除了更理解學校網路的架構，也培養與User溝通協調、謹慎思考問題所在並排除的理性思維。
-                                    
-                                    大二下時我加入「人工智慧與多媒體應用研究室」，協助碩班學長蒐集資料、繪製Ground Truth等...，大三時參與魏教授與長庚醫院的計劃，協助陳醫師開發「兒童精細動作評估系統」。
-                                    
-                                    大三暑假時我前往「早期療育中心」實習，進一步驗證系統的可行性，使其相關人員能夠應用於收案，為了收案之方便性，我們添加了粗大動作測驗錄製功能並上傳至資料庫，供後續合作對象進行AI分析。
-                                    
-                                    在專題研究中，我們的主要目標是設計一電子化測驗流程，藉由AI及電腦視覺來計算出相對客觀的分數，降低人工評估的偏誤，並且配合資料庫系統來協助他們進行收案。我們設計了三個題目，分別是圖形仿畫、路徑內臨摹、以及文字謄寫。
-                                    
-                                    圖形仿畫我們採用CNN模型來提取特徵，根據我們的評分項目，模型會輸出18個細項的符合機率值，並根據我們設定的threshold來給與分數。
-                                    
-                                    路徑內臨摹我們採用IoU的方式來評分，藉由計算測驗圖畫筆筆觸在路徑內外的比值，利用公式來計算出介於0到1的分數。
-                                    
-                                    文字謄寫的部分，我們會先對測驗字進行OCR比對，若與標準字相符便得分，接著會計算兩者筆劃的差值比例來給與分數，最後則是比對圖形相似度，目前預計是採用HOG比對兩者特徵相似度。
-                                    
-                                    在讀書及研究計畫上，我將會以人工智慧領域的課程為主軸，並主動修習跨領域的專業課程，並且我也會積極參與實驗室的計劃，參與研討會及產學合作，拓展實務經驗，目前我有興趣的領域為人工智慧與生物資訊相關。希望研究所也能持續朝這方面精進，為學術圈做出一點貢獻！</div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="three" class="tab-inner">
-                    <div class="section1 p-30" id="Home">
-                        <div class="sec-title">
-                            <div class="pg-sub-title">Page</div>
-                            <div class="pg-title">Education</div>
-                        </div>
-                        <ul class="timeline">
-                            <li class="timeline-event">
-                              <label class="timeline-event-icon"></label>
-                              <div class="timeline-event-copy">
-                                <p class="timeline-event-thumbnail">September 2017 - June 2020</p>
-                                <h3>Zhongli Senior High School</h3>
-                                <h4>Natural Track (Medical)</h4>
-                                <p><strong>Schwerpunkt: Frontend-Entwicklung</strong><br>Entwickeln von anspruchsvollen, animierten, responsive und adaptive Webseiten mit HTML5, SCSS, jQuery; für alle Browser, optimiert für Desktop, Notebook, Smartphones und Tablets (iOS, Android, Windows).</p>
-                                <p><strong>Projektmanagement mit Scrum</strong><br>Ständiges Verbessern des agilen Entwicklungsprozesses beispielsweise durch Grunt, Yeoman, GIT, JIRA und BrowserStack.</p>
-                              </div>
-                            </li>
-                            <li class="timeline-event">
-                              <label class="timeline-event-icon"></label>
-                              <div class="timeline-event-copy">
-                                <p class="timeline-event-thumbnail">September 2020 - June 2024</p>
-                                <h3>Chang Gung University</h3>
-                                <h4>Computer Science and Information Engineering</h4>
-                                <p><strong>Schwerpunkt: Frontend-Entwicklung</strong><br>Entwickeln von anspruchsvollen, animierten, responsive und adaptive Webseiten mit HTML5, SCSS, jQuery; für alle Browser, optimiert für Desktop, Notebook, Smartphones und Tablets (iOS, Android, Windows).</p>
-                                <p><strong>Projektmanagement mit Scrum</strong><br>Ständiges Verbessern des agilen Entwicklungsprozesses beispielsweise durch Grunt, Yeoman, GIT, JIRA und BrowserStack.</p>
-                              </div>
-                            </li>
-                            <li class="timeline-event">
-                              <label class="timeline-event-icon"></label>
-                              <div class="timeline-event-copy">
-                                <p class="timeline-event-thumbnail">September 2024 - Present</p>
-                                <h3>National Taiwan University</h3>
-                                <h4>Data Science Degree Program</h4>
-                                <p><strong>Schwerpunkt: Frontend-Entwicklung</strong><br>Entwickeln von anspruchsvollen, animierten, responsive und adaptive Webseiten mit HTML5, SCSS, jQuery; für alle Browser, optimiert für Desktop, Notebook, Smartphones und Tablets (iOS, Android, Windows).</p>
-                                <p><strong>Projektmanagement mit Scrum</strong><br>Ständiges Verbessern des agilen Entwicklungsprozesses beispielsweise durch Grunt, Yeoman, GIT, JIRA und BrowserStack.</p>
-                              </div>
-                            </li>
-                    </div>
-                </div>
-
-                <div id="four" class="tab-inner">
-                    <div class="section1 p-30" id="Home">
-                        <div class="sec-title">
-                            <div class="pg-sub-title">Page</div>
-                            <div class="pg-title">Work Experience</div>
-                        </div>
-                        <div class="d-flex-align-center">
-                            <div class="user-profile flex-1">
-                                <div class="pro-details">
-                                    <div class="name">Guan-Yu Chen (陳冠宇)</div>
-                                    <div class="role">Software Engineer</div>
-
-                                </div>
-                                <div class="text">行くぞ生徒たち！物の哀れを知りたまえ！</div>
-                                <div class="pr-list">
-                                    <ul>
-                                        <li><i class="fa fa-calendar" aria-hidden="true"></i> 7th December, 2001</li>
-                                        <li><i class="fa fa-phone" aria-hidden="true"></i> 0963517040</li>
-                                        <li><i class="fa fa-envelope" aria-hidden="true"></i> <a
-                                                href="mailto:Gary304666@gmail.com">Gary304666@gmail.com</a></li>
-                                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> Taoyuan City, Taiwan
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="social-icons-head">
-                                    <ul>
-                                        <li><a
-                                                href="https://www.linkedin.com/in/%E5%86%A0%E5%AE%87-%E9%99%B3-253281244/"><i
-                                                    class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-                                        <li><a href="https://www.instagram.com/gary20011207/"><i class="fa fa-instagram"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li><a href="https://www.facebook.com/DivineXzone/"><i class="fa fa-facebook"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li><a href="https://twitter.com/DivineXzone"><i class="fa fa-twitter"
-                                                    aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="five" class="tab-inner">
-                    <div class="section1 p-30" id="Home">
-                        <div class="sec-title">
-                            <div class="pg-sub-title">Page</div>
-                            <div class="pg-title">Contact</div>
-                        </div>
-                        <div class="d-flex-align-center">
-                            <div class="user-profile flex-1">
-                                <div class="pro-details">
-                                    <div class="name">Guan-Yu Chen (陳冠宇)</div>
-                                    <div class="role">Software Engineer</div>
-
-                                </div>
-                                <div class="text">行くぞ生徒たち！物の哀れを知りたまえ！</div>
-                                <div class="pr-list">
-                                    <ul>
-                                        <li><i class="fa fa-calendar" aria-hidden="true"></i> 7th December, 2001</li>
-                                        <li><i class="fa fa-phone" aria-hidden="true"></i> 0963517040</li>
-                                        <li><i class="fa fa-envelope" aria-hidden="true"></i> <a
-                                                href="mailto:Gary304666@gmail.com">Gary304666@gmail.com</a></li>
-                                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> Taoyuan City, Taiwan
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="social-icons-head">
-                                    <ul>
-                                        <li><a
-                                                href="https://www.linkedin.com/in/%E5%86%A0%E5%AE%87-%E9%99%B3-253281244/"><i
-                                                    class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-                                        <li><a href="https://www.instagram.com/gary20011207/"><i class="fa fa-instagram"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li><a href="https://www.facebook.com/DivineXzone/"><i class="fa fa-facebook"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li><a href="https://twitter.com/DivineXzone"><i class="fa fa-twitter"
-                                                    aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="section experience" id="experience">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-label">Work Experience</span>
+                    <h2 class="section-title">Professional Experience</h2>
+                    <p class="section-subtitle">From research to industry, accumulating diverse practical experience</p>
+                </div>
+                <div class="experience-grid">
+                    <!-- TSMC -->
+                    <div class="experience-card">
+                        <div class="experience-logo">
+                            <img src="assets/tsmc-logo.png" alt="TSMC" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-microchip\' style=\'font-size:1.5rem;color:var(--primary-color)\'></i>';">
+                        </div>
+                        <div class="experience-content">
+                            <h3>R&D Intern</h3>
+                            <div class="experience-company">Taiwan Semiconductor Manufacturing Company (TSMC)</div>
+                            <div class="experience-meta">
+                                <span><i class="fas fa-building"></i> Design Technology Platform (DTP)</span>
+                                <span><i class="fas fa-calendar"></i> Jul 2025 - Aug 2025</span>
+                            </div>
+                            <div class="experience-description">
+                                <ul>
+                                    <li><strong>Top 10 Finalist</strong> at 2025 DTP Intern Conference for project: "LLM-Driven Automation Framework for LVS Deck Coding Copilot and Layout Pattern Constraint Generation"</li>
+                                    <li>Worked within the Technology File Automation & Physical Design Analysis Dept., developed and applied AI/ML models to validate and accelerate key automation workflows for DRC/LVS rule decks on advanced-node processes</li>
+                                    <li>Engineered an AI framework utilizing multi-agent systems and LoRA-tuned LLMs to auto-generate internal specification configs from layout patterns and translate rule deck syntax between mainstream EDA vendor platforms</li>
+                                </ul>
+                            </div>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">PyTorch</span>
+                                <span class="tech-tag">LangChain</span>
+                                <span class="tech-tag">LoRA</span>
+                                <span class="tech-tag">EDA</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NTU RA -->
+                    <div class="experience-card">
+                        <div class="experience-logo">
+                            <img src="SL_NTU.png" alt="NTU">
+                        </div>
+                        <div class="experience-content">
+                            <h3>Research Assistant</h3>
+                            <div class="experience-company">National Taiwan University, Department of CSIE</div>
+                            <div class="experience-meta">
+                                <span><i class="fas fa-flask"></i> AI Application and Integration Lab</span>
+                                <span><i class="fas fa-calendar"></i> Sep 2024 - Present</span>
+                            </div>
+                            <div class="experience-description">
+                                <ul>
+                                    <li>Conducted research on Continual PEFT for Medical MLLMs to enhance model adaptability and efficiency</li>
+                                    <li>Developed segmentation models for NTUH's handheld ultrasound, optimizing real-time medical imaging pipelines</li>
+                                    <li>Integrated federated learning for AI collaboration with NCKUH, ensuring privacy-preserving training</li>
+                                </ul>
+                            </div>
+                            <div class="tech-tags">
+                                <span class="tech-tag">PyTorch</span>
+                                <span class="tech-tag">CUDA</span>
+                                <span class="tech-tag">Docker</span>
+                                <span class="tech-tag">NVIDIA FLARE</span>
+                                <span class="tech-tag">OpenCV</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CGMH RA -->
+                    <div class="experience-card">
+                        <div class="experience-logo">
+                            <img src="WL_CGUMF.png" alt="CGMH">
+                        </div>
+                        <div class="experience-content">
+                            <h3>Research Assistant</h3>
+                            <div class="experience-company">Chang Gung Memorial Hospital</div>
+                            <div class="experience-meta">
+                                <span><i class="fas fa-hospital"></i> Early Intervention Center</span>
+                                <span><i class="fas fa-calendar"></i> Jan 2024 - Jan 2025</span>
+                            </div>
+                            <div class="experience-description">
+                                <ul>
+                                    <li>Developed an Android app for the Early Intervention Center to assess fine motor skills, integrating computer vision for automated case intake and building Firebase for digital management, improving process efficiency by over 50%</li>
+                                    <li>Co-designed a novel, standardized BOT-2-based assessment method with physicians, rigorously optimized for digital testing to enhance reliability, consistency, and fine motor skill evaluation accuracy by 20%</li>
+                                    <li>Optimized stroke fitting using quadratic Bézier curves, achieving O(n) time complexity for real-time processing</li>
+                                </ul>
+                            </div>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Android</span>
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">OpenCV</span>
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">Firebase</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="section education" id="education">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-label">Education</span>
+                    <h2 class="section-title">Academic Background</h2>
+                    <p class="section-subtitle">Solid academic training, building a strong foundation for research and engineering</p>
+                </div>
+                <div class="education-grid">
+                    <!-- NTU -->
+                    <div class="education-card">
+                        <div class="education-logo">
+                            <img src="SL_NTU.png" alt="NTU">
+                        </div>
+                        <div class="education-content">
+                            <h3><a href="https://www.ntu.edu.tw/" target="_blank">National Taiwan University</a></h3>
+                            <p class="education-degree">M.S. in Data Science (With Academia Sinica)</p>
+                            <div class="education-details">
+                                <span class="gpa"><i class="fas fa-star"></i> GPA: 4.22/4.30</span>
+                                <span class="rank"><i class="fas fa-trophy"></i> Dept. Rank: 1/13</span>
+                            </div>
+                        </div>
+                        <div class="education-period">Sep 2024 - Present</div>
+                    </div>
+
+                    <!-- CGU -->
+                    <div class="education-card">
+                        <div class="education-logo">
+                            <img src="SL_CGU.png" alt="CGU">
+                        </div>
+                        <div class="education-content">
+                            <h3><a href="https://www.cgu.edu.tw/" target="_blank">Chang Gung University</a></h3>
+                            <p class="education-degree">B.S. in Computer Science and Information Engineering</p>
+                            <div class="education-details">
+                                <span class="gpa"><i class="fas fa-star"></i> GPA: 3.94/4.00</span>
+                                <span class="rank"><i class="fas fa-trophy"></i> Dept. Rank: 1/67 (Valedictorian)</span>
+                            </div>
+                        </div>
+                        <div class="education-period">Sep 2020 - Jun 2024</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section projects" id="projects">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-label">Projects</span>
+                    <h2 class="section-title">Featured Projects</h2>
+                    <p class="section-subtitle">From low-level systems to high-performance computing, demonstrating comprehensive technical capabilities</p>
+                </div>
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>High-Performance Parallel Computing & GPU Acceleration</h3>
+                            <span class="project-year">2025</span>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Optimized CUDA kernels for matrix operations by utilizing shared memory and padding techniques to resolve shared memory bank conflicts, analyzing performance metrics via Nsight Compute</li>
+                                <li>Implemented distributed Attention mechanisms and Convolution algorithms using MPI and OpenMP, improving throughput through AVX-512 vectorization and memory alignment</li>
+                            </ul>
+                            <div class="tech-tags">
+                                <span class="tech-tag">C/C++</span>
+                                <span class="tech-tag">CUDA</span>
+                                <span class="tech-tag">MPI</span>
+                                <span class="tech-tag">OpenMP</span>
+                                <span class="tech-tag">AVX-512</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Real-Time OS Scheduler Design & Linux Kernel Modifications</h3>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Implemented real-time scheduling algorithms (EDF, Rate Monotonic) and Priority Inheritance Protocol (PIP) in the µC/OS-II kernel to manage task synchronization and resolve priority inversion</li>
+                                <li>Modified Linux Kernel (v5.15) source code to register custom system calls and developed loadable kernel modules (LKM) to facilitate kernel-space interaction</li>
+                            </ul>
+                            <div class="tech-tags">
+                                <span class="tech-tag">C</span>
+                                <span class="tech-tag">µC/OS-II</span>
+                                <span class="tech-tag">Linux Kernel</span>
+                                <span class="tech-tag">System Calls</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>BIG8051 Microcontroller Project: GLCD Snake Game</h3>
+                            <span class="project-year">2023</span>
+                        </div>
+                        <div class="project-body">
+                            <ul>
+                                <li>Programmed low-level GLCD drivers in C by directly manipulating I/O ports and control signals (RS/RW) to implement page addressing and render 128x64 bitmap graphics</li>
+                                <li>Utilized Timer Interrupts and GPIO to implement a finite state machine for real-time game logic, precise sound frequency generation, and responsive user input handling on bare-metal hardware</li>
+                            </ul>
+                            <div class="tech-tags">
+                                <span class="tech-tag">C</span>
+                                <span class="tech-tag">Assembly</span>
+                                <span class="tech-tag">GLCD</span>
+                                <span class="tech-tag">GPIO</span>
+                                <span class="tech-tag">Interrupts</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section skills" id="skills">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-label">Technical Skills</span>
+                    <h2 class="section-title">Professional Skills</h2>
+                    <p class="section-subtitle">Comprehensive tech stack from low-level systems to application development</p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                        <div class="skill-items">
+                            <span class="skill-item">Python</span>
+                            <span class="skill-item">C/C++</span>
+                            <span class="skill-item">Java</span>
+                            <span class="skill-item">CUDA</span>
+                            <span class="skill-item">Assembly</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-brain"></i> AI/ML Frameworks</h3>
+                        <div class="skill-items">
+                            <span class="skill-item">PyTorch</span>
+                            <span class="skill-item">TensorFlow</span>
+                            <span class="skill-item">Keras</span>
+                            <span class="skill-item">LangChain</span>
+                            <span class="skill-item">Unsloth</span>
+                            <span class="skill-item">NVIDIA FLARE</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-server"></i> Systems & Tools</h3>
+                        <div class="skill-items">
+                            <span class="skill-item">Docker</span>
+                            <span class="skill-item">Linux</span>
+                            <span class="skill-item">Git</span>
+                            <span class="skill-item">MPI</span>
+                            <span class="skill-item">OpenMP</span>
+                            <span class="skill-item">NCHC</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-mobile-alt"></i> App Development</h3>
+                        <div class="skill-items">
+                            <span class="skill-item">Android Studio</span>
+                            <span class="skill-item">OpenCV</span>
+                            <span class="skill-item">Firebase</span>
+                            <span class="skill-item">Scikit-learn</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section contact" id="contact">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-label">Contact</span>
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p class="section-subtitle">Open to collaboration opportunities and academic exchanges</p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Let's Start a Conversation</h3>
+                        <p>Whether it's research collaboration, job opportunities, or just talking about technology, feel free to reach out!</p>
+                        <div class="contact-items">
+                            <div class="contact-item">
+                                <div class="contact-item-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-item-content">
+                                    <h4>Email</h4>
+                                    <a href="mailto:Gary304666@gmail.com">Gary304666@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-item-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="contact-item-content">
+                                    <h4>Phone</h4>
+                                    <p>+886 963-517-040</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-item-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-item-content">
+                                    <h4>Location</h4>
+                                    <p>Taipei, Taiwan</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-social">
+                            <h4>Social Media</h4>
+                            <div class="social-links">
+                                <a href="https://github.com/Gary20011207" target="_blank" title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/%E5%86%A0%E5%AE%87-%E9%99%B3-253281244/" target="_blank" title="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://www.instagram.com/gary20011207/" target="_blank" title="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://www.facebook.com/DivineXzone/" target="_blank" title="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-map">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.0027456789!2d121.5397!3d25.0173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442aa27539b4a33%3A0x7f893e1d3f9c3e45!2z5ZyL56uL5Y-w54Gj5aSn5a24!5e0!3m2!1sen!2stw!4v1234567890"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-content">
+                    <div class="footer-logo">Gary Chen</div>
+                    <div class="footer-social">
+                        <a href="https://github.com/Gary20011207" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/%E5%86%A0%E5%AE%87-%E9%99%B3-253281244/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:Gary304666@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Guan-Yu Chen. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scroll to Top Button -->
+        <button class="scroll-top" id="scroll-top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
     </div>
 
-    <script>
-        function showTab(tabId) {
-            // Hide all tabs
-            var tabs = document.querySelectorAll('.tab-inner');
-            tabs.forEach(function (tab) {
-                tab.style.display = 'none';
-            });
-
-            // Show the selected tab
-            var selectedTab = document.getElementById(tabId);
-            if (selectedTab) {
-                selectedTab.style.display = 'block';
-            }
-        }
-
-        // Attach click event listeners to navigation links
-        document.querySelectorAll('.tab-title a').forEach(function (link) {
-            link.addEventListener('click', function () {
-                var tabId = link.getAttribute('data-tablink');
-                showTab(tabId);
-            });
-        });
-
-        // Show the initial tab (Home) when the page loads
-        showTab('one');
-    </script>
+    <script src="home.js"></script>
 </body>
-
 </html>
