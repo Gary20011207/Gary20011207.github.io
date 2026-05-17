@@ -1,261 +1,226 @@
-// ========== DOM Elements ==========
-document.addEventListener('DOMContentLoaded', function() {
-    const header = document.getElementById('header');
-    const navMenu = document.getElementById('nav-menu');
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const scrollTopBtn = document.getElementById('scroll-top');
-    const navLinks = document.querySelectorAll('.nav-menu a');
+document.addEventListener("DOMContentLoaded", () => {
+    const root = document.documentElement;
+    const header = document.getElementById("header");
+    const navMenu = document.getElementById("nav-menu");
+    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+    const scrollTopBtn = document.getElementById("scroll-top");
+    const themeToggle = document.getElementById("theme-toggle");
+    const navLinks = document.querySelectorAll(".nav-menu a");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // ========== Mobile Menu Toggle ==========
-    if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            this.classList.toggle('active');
+    function preferredTheme() {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark" || savedTheme === "light") {
+            return savedTheme;
+        }
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+
+    function setTheme(theme) {
+        root.dataset.theme = theme;
+        localStorage.setItem("theme", theme);
+        if (themeToggle) {
+            const label = theme === "dark" ? "Switch to light mode" : "Switch to dark mode";
+            themeToggle.setAttribute("aria-label", label);
+            themeToggle.setAttribute("title", label);
+        }
+    }
+
+    setTheme(preferredTheme());
+
+    if (themeToggle) {
+        themeToggle.addEventListener("click", () => {
+            setTheme(root.dataset.theme === "dark" ? "light" : "dark");
         });
     }
 
-    // Close mobile menu when clicking on a link
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            navMenu.classList.remove('active');
-            if (mobileMenuBtn) {
-                mobileMenuBtn.classList.remove('active');
+    if (mobileMenuBtn && navMenu) {
+        mobileMenuBtn.addEventListener("click", () => {
+            const isOpen = navMenu.classList.toggle("active");
+            mobileMenuBtn.classList.toggle("active", isOpen);
+            mobileMenuBtn.setAttribute("aria-expanded", String(isOpen));
+        });
+    }
+
+    navLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+            const targetId = link.getAttribute("href");
+            if (!targetId || !targetId.startsWith("#")) {
+                return;
             }
+
+            event.preventDefault();
+            const targetSection = document.querySelector(targetId);
+            if (targetSection) {
+                const top = targetSection.offsetTop - (header?.offsetHeight || 0) + 1;
+                window.scrollTo({ top, behavior: reduceMotion ? "auto" : "smooth" });
+            }
+
+            navMenu?.classList.remove("active");
+            mobileMenuBtn?.classList.remove("active");
+            mobileMenuBtn?.setAttribute("aria-expanded", "false");
         });
     });
 
-    // ========== Header Scroll Effect ==========
+    function updateActiveNavLink() {
+        const sections = document.querySelectorAll("section[id]");
+        const scrollPosition = window.scrollY + (header?.offsetHeight || 0) + 60;
+
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionBottom = sectionTop + section.offsetHeight;
+            const sectionId = section.getAttribute("id");
+
+            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                navLinks.forEach((link) => {
+                    link.classList.toggle("active", link.getAttribute("href") === `#${sectionId}`);
+                });
+            }
+        });
+    }
+
     function handleScroll() {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-
-        // Show/hide scroll to top button
-        if (window.scrollY > 500) {
-            scrollTopBtn.classList.add('visible');
-        } else {
-            scrollTopBtn.classList.remove('visible');
-        }
-
-        // Update active navigation link
+        header?.classList.toggle("scrolled", window.scrollY > 40);
+        scrollTopBtn?.classList.toggle("visible", window.scrollY > 520);
         updateActiveNavLink();
     }
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
 
-    // ========== Scroll to Top ==========
-    if (scrollTopBtn) {
-        scrollTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    }
-
-    // ========== Update Active Navigation Link ==========
-    function updateActiveNavLink() {
-        const sections = document.querySelectorAll('section[id]');
-        const scrollPosition = window.scrollY + 100;
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-        });
-    }
-
-    // ========== Smooth Scroll for Navigation Links ==========
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-
-            if (targetSection) {
-                const headerHeight = header.offsetHeight;
-                const targetPosition = targetSection.offsetTop - headerHeight;
-
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
+    scrollTopBtn?.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
     });
 
-    // ========== Intersection Observer for Animations ==========
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-fade-in-up');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    // Observe elements for animation
-    const animateElements = document.querySelectorAll(
-        '.experience-card, .education-card, .project-card, .skill-category, .contact-item'
+    const revealElements = document.querySelectorAll(
+        ".text-panel, .focus-panel, .focus-item, .experience-card, .education-card, .project-card, .skill-category, .contact-panel, .resume-panel"
     );
 
-    animateElements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
-        observer.observe(element);
-    });
-
-    // ========== Typing Effect for Hero Name (Optional) ==========
-    // Uncomment if you want a typing effect
-    /*
-    const heroName = document.querySelector('.hero-name');
-    if (heroName) {
-        const text = heroName.textContent;
-        heroName.textContent = '';
-        let i = 0;
-
-        function typeWriter() {
-            if (i < text.length) {
-                heroName.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            }
-        }
-
-        typeWriter();
-    }
-    */
-
-    // ========== Stats Counter Animation ==========
-    function animateCounter(element, target, duration = 2000) {
-        let start = 0;
-        const increment = target / (duration / 16);
-
-        function updateCounter() {
-            start += increment;
-            if (start < target) {
-                element.textContent = Math.floor(start);
-                requestAnimationFrame(updateCounter);
-            } else {
-                element.textContent = target;
-            }
-        }
-
-        updateCounter();
-    }
-
-    // Observe stats for counter animation
-    const statsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const statNumbers = entry.target.querySelectorAll('.stat-number');
-                statNumbers.forEach(stat => {
-                    const value = stat.textContent;
-                    // Only animate if it's a pure number
-                    if (!isNaN(parseFloat(value)) && isFinite(value)) {
-                        animateCounter(stat, parseFloat(value));
+    if (!reduceMotion && "IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("animate-fade-in-up");
+                        revealObserver.unobserve(entry.target);
                     }
                 });
-                statsObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
+            },
+            { threshold: 0.12 }
+        );
 
-    const heroStats = document.querySelector('.hero-stats');
-    if (heroStats) {
-        statsObserver.observe(heroStats);
-    }
-
-    // ========== Form Validation (if contact form exists) ==========
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Basic validation
-            const inputs = this.querySelectorAll('input, textarea');
-            let isValid = true;
-
-            inputs.forEach(input => {
-                if (input.hasAttribute('required') && !input.value.trim()) {
-                    isValid = false;
-                    input.classList.add('error');
-                } else {
-                    input.classList.remove('error');
-                }
-            });
-
-            if (isValid) {
-                // Handle form submission
-                console.log('Form submitted successfully');
-                // You can add AJAX submission here
-            }
+        revealElements.forEach((element, index) => {
+            element.classList.add("reveal-ready");
+            element.style.setProperty("--reveal-delay", `${Math.min(index % 6, 5) * 70}ms`);
+            revealObserver.observe(element);
         });
     }
 
-    // ========== Lazy Loading Images ==========
-    const lazyImages = document.querySelectorAll('img[data-src]');
-
-    const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-                imageObserver.unobserve(img);
-            }
-        });
+    document.querySelectorAll(".stat-number").forEach((stat) => {
+        stat.textContent = stat.dataset.value || stat.textContent.trim();
     });
 
-    lazyImages.forEach(img => imageObserver.observe(img));
+    const canvas = document.getElementById("hero-canvas");
+    if (canvas && !reduceMotion) {
+        const context = canvas.getContext("2d");
+        let width = 0;
+        let height = 0;
+        let particles = [];
+        let animationId = 0;
 
-    // ========== Dark Mode Toggle (Future Feature) ==========
-    /*
-    const darkModeToggle = document.querySelector('.dark-mode-toggle');
-    if (darkModeToggle) {
-        darkModeToggle.addEventListener('click', function() {
-            document.body.classList.toggle('dark-mode');
-            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-        });
-
-        // Check for saved preference
-        if (localStorage.getItem('darkMode') === 'true') {
-            document.body.classList.add('dark-mode');
+        function resizeCanvas() {
+            const ratio = window.devicePixelRatio || 1;
+            width = canvas.clientWidth;
+            height = canvas.clientHeight;
+            canvas.width = Math.floor(width * ratio);
+            canvas.height = Math.floor(height * ratio);
+            context.setTransform(ratio, 0, 0, ratio, 0, 0);
+            particles = Array.from({ length: Math.min(54, Math.max(28, Math.floor(width / 24))) }, (_, index) => ({
+                x: (index * 97) % Math.max(width, 1),
+                y: (index * 53) % Math.max(height, 1),
+                vx: 0.14 + (index % 4) * 0.035,
+                vy: 0.08 + (index % 5) * 0.025,
+                r: 1.2 + (index % 3) * 0.45,
+            }));
         }
-    }
-    */
 
-    // ========== Console Easter Egg ==========
-    console.log('%c Welcome to Gary Chen\'s Portfolio! ',
-        'background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%); color: white; padding: 10px 20px; font-size: 16px; border-radius: 5px;');
-    console.log('%c Looking for a passionate AI researcher? Let\'s connect! ',
-        'color: #2563eb; font-size: 12px;');
-});
+        function themeColor(alpha) {
+            const isDark = root.dataset.theme === "dark";
+            return isDark ? `rgba(96, 165, 250, ${alpha})` : `rgba(37, 99, 235, ${alpha})`;
+        }
 
-// ========== Preloader (Optional) ==========
-window.addEventListener('load', function() {
-    const preloader = document.querySelector('.preloader');
-    if (preloader) {
-        preloader.classList.add('fade-out');
-        setTimeout(() => {
-            preloader.style.display = 'none';
-        }, 500);
+        function accentColor(alpha) {
+            const isDark = root.dataset.theme === "dark";
+            return isDark ? `rgba(251, 191, 36, ${alpha})` : `rgba(217, 119, 6, ${alpha})`;
+        }
+
+        function drawWaferArcs(time) {
+            const centerX = width * 0.72;
+            const centerY = height * 0.48;
+            const base = Math.min(width, height) * 0.28;
+            context.lineWidth = 1;
+            for (let i = 0; i < 6; i += 1) {
+                context.beginPath();
+                context.strokeStyle = i % 2 === 0 ? themeColor(0.15) : accentColor(0.12);
+                const radius = base + i * 26;
+                const start = 0.35 + Math.sin(time / 1200 + i) * 0.08;
+                context.arc(centerX, centerY, radius, start, start + Math.PI * 1.25);
+                context.stroke();
+            }
+        }
+
+        function animate(time) {
+            context.clearRect(0, 0, width, height);
+            drawWaferArcs(time);
+
+            particles.forEach((particle) => {
+                particle.x += particle.vx;
+                particle.y += particle.vy;
+                if (particle.x > width + 20) particle.x = -20;
+                if (particle.y > height + 20) particle.y = -20;
+            });
+
+            for (let i = 0; i < particles.length; i += 1) {
+                for (let j = i + 1; j < particles.length; j += 1) {
+                    const a = particles[i];
+                    const b = particles[j];
+                    const distance = Math.hypot(a.x - b.x, a.y - b.y);
+                    if (distance < 145) {
+                        context.beginPath();
+                        context.strokeStyle = themeColor(0.16 * (1 - distance / 145));
+                        context.lineWidth = 1;
+                        context.moveTo(a.x, a.y);
+                        context.lineTo(b.x, b.y);
+                        context.stroke();
+                    }
+                }
+            }
+
+            particles.forEach((particle, index) => {
+                context.beginPath();
+                context.fillStyle = index % 5 === 0 ? accentColor(0.45) : themeColor(0.44);
+                context.arc(particle.x, particle.y, particle.r, 0, Math.PI * 2);
+                context.fill();
+            });
+
+            animationId = requestAnimationFrame(animate);
+        }
+
+        resizeCanvas();
+        window.addEventListener("resize", resizeCanvas, { passive: true });
+        animationId = requestAnimationFrame(animate);
+
+        document.addEventListener("visibilitychange", () => {
+            if (document.hidden) {
+                cancelAnimationFrame(animationId);
+            } else {
+                animationId = requestAnimationFrame(animate);
+            }
+        });
     }
+
+    console.log(
+        "%c Gary Chen Portfolio ",
+        "background: linear-gradient(135deg,#2563eb,#0891b2,#d97706); color: white; padding: 8px 12px; border-radius: 6px; font-weight: 700;"
+    );
 });

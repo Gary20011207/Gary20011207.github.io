@@ -3,519 +3,531 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="陳冠宇 - 国立台湾大学データサイエンス修士課程、AI・機械学習・医療画像研究に注力">
-    <meta name="keywords" content="陳冠宇, Guan-Yu Chen, データサイエンス, AI, 機械学習, 台湾大学, TSMC">
-    <title>陳冠宇 | AI研究者 & ソフトウェアエンジニア</title>
-    <link rel="stylesheet" href="home.css">
+    <meta name="description" content="陳冠宇 - LLMサービス、RAG、AIエージェント、プライバシー保護AI、半導体設計自動化に注力するAIアプリケーションエンジニア。">
+    <meta name="keywords" content="陳冠宇, Guan-Yu Chen, AI Application Engineer, LLM, RAG, AI Agents, SOC Automation, TSMC, NTU">
+    <title>陳冠宇 | AIアプリケーションエンジニア</title>
+    <link rel="stylesheet" href="home.css?v=20260517">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <div class="wrapper">
-        <!-- Header -->
         <header class="header" id="header">
-            <nav class="nav-container">
-                <a href="#" class="logo">Gary Chen</a>
+            <nav class="nav-container" aria-label="メインナビゲーション">
+                <a href="#home" class="logo"><span class="logo-mark"></span>Gary Chen</a>
                 <div class="nav-menu" id="nav-menu">
                     <a href="#home" class="active">ホーム</a>
-                    <a href="#about">自己紹介</a>
-                    <a href="#experience">職歴</a>
+                    <a href="#about">概要</a>
+                    <a href="#experience">経験</a>
                     <a href="#education">学歴</a>
                     <a href="#projects">プロジェクト</a>
                     <a href="#skills">スキル</a>
                     <a href="#contact">連絡先</a>
                 </div>
                 <div class="nav-right">
-                    <div class="lang-switcher">
+                    <a class="resume-nav" href="/Resume.pdf" target="_blank" rel="noreferrer">
+                        <i class="fas fa-file-lines"></i> 履歴を見る
+                    </a>
+                    <div class="lang-switcher" aria-label="言語切替">
                         <a href="index.html">中</a>
                         <a href="index-en.html">EN</a>
                         <a href="index-ja.html" class="active">日</a>
                     </div>
-                    <div class="mobile-menu-btn" id="mobile-menu-btn">
+                    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="テーマ切替">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <button class="mobile-menu-btn" id="mobile-menu-btn" type="button" aria-label="ナビゲーション切替" aria-expanded="false">
                         <span></span>
                         <span></span>
                         <span></span>
-                    </div>
+                    </button>
                 </div>
             </nav>
         </header>
 
-        <!-- Hero Section -->
-        <section class="hero" id="home">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <p class="hero-greeting">はじめまして、</p>
-                    <h1 class="hero-name">陳冠宇</h1>
-                    <p class="hero-title">AI研究者 & ソフトウェアエンジニア</p>
-                    <p class="hero-description">
-                        国立台湾大学データサイエンス修士課程に在籍し、
-                        医療AI、大規模言語モデル、連合学習の研究に取り組んでいます。
-                        TSMCでのR&Dインターン経験を持ち、AIの実用化に情熱を注いでいます。
-                    </p>
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">4.22</div>
-                            <div class="stat-label">修士GPA</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">1位</div>
-                            <div class="stat-label">学科順位</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">3+</div>
-                            <div class="stat-label">研究経験</div>
-                        </div>
-                    </div>
-                    <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i> お問い合わせ
-                        </a>
-                        <a href="#experience" class="btn btn-secondary">
-                            <i class="fas fa-briefcase"></i> 経歴を見る
-                        </a>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://github.com/Gary20011207" target="_blank" title="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/%E5%86%A0%E5%AE%87-%E9%99%B3-253281244/" target="_blank" title="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="mailto:Gary304666@gmail.com" title="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <div class="hero-image-wrapper">
-                        <img src="Head.jpg" alt="陳冠宇">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section class="section about" id="about">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-label">自己紹介</span>
-                    <h2 class="section-title">プロフィール</h2>
-                    <p class="section-subtitle">AI技術の無限の可能性を探求し、研究成果を実際の場面に応用することに情熱を注いでいます</p>
-                </div>
-                <div class="about-content">
-                    <div class="about-text">
-                        <h3>コードからソリューションへ</h3>
-                        <p>
-                            現在、国立台湾大学データサイエンス学位プログラム（中央研究院との連携）に在籍し、
-                            AI応用統合研究室で研究を行っています。医療マルチモーダル大規模言語モデル（Medical MLLMs）の
-                            継続的パラメータ効率的ファインチューニング（Continual PEFT）に焦点を当てています。
+        <main>
+            <section class="hero" id="home">
+                <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+                <div class="hero-container">
+                    <div class="hero-content">
+                        <span class="hero-eyebrow"><i class="fas fa-microchip"></i> AI Services for Engineering Workflows</span>
+                        <h1 class="hero-name">陳冠宇</h1>
+                        <p class="hero-title">AIアプリケーションエンジニア｜LLM/RAG・Agent Systems｜半導体設計自動化</p>
+                        <p class="hero-description">
+                            ドメイン知識を実用的なエンジニアリング workflow に変える AI システムを構築しています。
+                            LLM-backed services、RAG、マルチエージェント自動化、評価ループ、プライバシー保護医療 AI に注力しています。
+                            TSMC DTP インターンと NTU 研究を通じて、半導体と医療の文脈で信頼できる AI 応用を考えています。
                         </p>
-                        <p>
-                            長庚大学で情報工学の学士号を取得し、学科1位（GPA 3.94/4.00）で卒業、
-                            2024年度CSIE卒業生代表を務めました。確固たる基礎と継続的な学習が
-                            優れたエンジニアになるための鍵だと信じています。
+                        <div class="capability-rail" aria-label="AI capability focus">
+                            <span><i class="fas fa-server"></i> LLM Services</span>
+                            <span><i class="fas fa-magnifying-glass-chart"></i> RAG Systems</span>
+                            <span><i class="fas fa-diagram-project"></i> AI Agents</span>
+                            <span><i class="fas fa-clipboard-check"></i> Evaluation</span>
+                            <span><i class="fas fa-microchip"></i> SOC/EDA Context</span>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <span class="stat-number" data-value="4.22">4.22</span>
+                                <span class="stat-label">NTU 修士 GPA</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-value="1/13">1/13</span>
+                                <span class="stat-label">プログラム順位</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-value="Top 10">Top 10</span>
+                                <span class="stat-label">TSMC DTP Finalist</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-value="50%">50%</span>
+                                <span class="stat-label">業務効率向上</span>
+                            </div>
+                        </div>
+                        <div class="hero-buttons">
+                            <a href="/Resume.pdf" target="_blank" rel="noreferrer" class="btn btn-primary">
+                                <i class="fas fa-file-lines"></i> 履歴を見る
+                            </a>
+                            <a href="#projects" class="btn btn-secondary">
+                                <i class="fas fa-layer-group"></i> AIプロジェクト
+                            </a>
+                        </div>
+                        <div class="social-links" aria-label="公開プロフィール">
+                            <a href="https://github.com/Gary20011207" target="_blank" rel="noreferrer" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/gary20011207/" target="_blank" rel="noreferrer" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="mailto:Gary304666@gmail.com" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="portrait-card">
+                            <img src="Head.jpg" alt="陳冠宇">
+                        </div>
+                        <div class="system-card">
+                            <strong>Target Role Fit</strong>
+                            <span>LLM-backed services、RAG、agents、evaluation、半導体設計自動化の文脈。</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="about">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-label">概要</span>
+                        <h2 class="section-title">研究力を持つAIアプリケーションエンジニア</h2>
+                        <p class="section-subtitle">
+                            実際の工程組織で使える AI を重視しています。根拠ある retrieval、制御可能な agent、信頼できる evaluation、
+                            そして安全なドメインデータ境界を大切にしています。
                         </p>
-                        <div class="about-highlights">
-                            <div class="highlight-item">
-                                <i class="fas fa-brain"></i>
-                                <span>医療AI</span>
+                    </div>
+                    <div class="about-content">
+                        <div class="text-panel">
+                            <h3>モデルから運用可能な workflow へ</h3>
+                            <p>
+                                国立台湾大学データサイエンス修士課程に在籍し、AI応用統合研究室で研究しています。
+                                研究領域は continual adaptation、医療マルチモーダル AI、画像セグメンテーション、連合学習です。
+                            </p>
+                            <p>
+                                TSMC DTP では layout / rule-deck 関連工程に向けた LLM-driven automation framework に取り組みました。
+                                この経験から、専有データを扱う環境での追跡可能性、レビュー可能性、データ保護の重要性を学びました。
+                            </p>
+                            <div class="highlight-grid">
+                                <div class="highlight-item"><i class="fas fa-brain"></i> LLM/RAG Engineering</div>
+                                <div class="highlight-item"><i class="fas fa-robot"></i> Agent Workflows</div>
+                                <div class="highlight-item"><i class="fas fa-shield-halved"></i> Privacy-Preserving AI</div>
+                                <div class="highlight-item"><i class="fas fa-gauge-high"></i> GPU/HPC Optimization</div>
                             </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-robot"></i>
-                                <span>大規模言語モデル</span>
+                        </div>
+                        <div class="focus-panel">
+                            <div class="focus-item">
+                                <span>AI Services</span>
+                                <p>Python中心の明確なインターフェース、再利用可能な workflow、デプロイを意識した AI 応用。</p>
                             </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-shield-halved"></i>
-                                <span>連合学習</span>
+                            <div class="focus-item">
+                                <span>Knowledge Systems</span>
+                                <p>RAG retrieval、ドメイン文書 grounding、回答品質評価、プライバシー境界設計。</p>
                             </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-microchip"></i>
-                                <span>GPUアクセラレーション</span>
+                            <div class="focus-item">
+                                <span>Engineering Context</span>
+                                <p>TSMC DTP、EDA automation、CUDA、分散コンピューティング、医療 AI 共同研究の経験。</p>
                             </div>
                         </div>
                     </div>
-                    <div class="about-image">
-                        <div class="skills-grid">
-                            <div class="skill-category">
-                                <h3><i class="fas fa-code"></i> 研究分野</h3>
-                                <div class="skill-items">
-                                    <span class="skill-item">医療画像解析</span>
-                                    <span class="skill-item">マルチモーダル学習</span>
-                                    <span class="skill-item">継続学習</span>
-                                    <span class="skill-item">連合学習</span>
-                                    <span class="skill-item">LLMファインチューニング</span>
+                </div>
+            </section>
+
+            <section class="section alt" id="experience">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-label">経験</span>
+                        <h2 class="section-title">産業と研究の経験</h2>
+                        <p class="section-subtitle">AI応用、医療AI、半導体設計自動化を公開可能な範囲でまとめています。</p>
+                    </div>
+                    <div class="experience-grid">
+                        <article class="experience-card">
+                            <div class="experience-logo">
+                                <img src="assets/tsmc-logo.png" alt="TSMC">
+                            </div>
+                            <div class="experience-content">
+                                <h3>R&amp;Dインターン</h3>
+                                <div class="experience-company">TSMC, Design Technology Platform (DTP)</div>
+                                <div class="experience-meta">
+                                    <span><i class="fas fa-building"></i> Technology File Automation &amp; Physical Design Analysis</span>
+                                    <span><i class="fas fa-calendar"></i> 2025年7月 - 8月</span>
+                                </div>
+                                <div class="experience-description">
+                                    <ul>
+                                        <li><strong>2025 DTP Intern Conference Top 10</strong> 入選。テーマは LLM-driven LVS deck coding assistance と layout pattern constraint generation。</li>
+                                        <li>multi-agent orchestration、LoRA-tuned LLM behavior、構造化仕様/設定生成を含む AI workflow コンポーネントを構築。</li>
+                                        <li>専有工程環境に必要な信頼性に注力し、追跡可能な出力、人間のレビュー、機密データ境界を意識。</li>
+                                    </ul>
+                                </div>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">PyTorch</span>
+                                    <span class="tech-tag">LangChain</span>
+                                    <span class="tech-tag">LoRA</span>
+                                    <span class="tech-tag">EDA Automation</span>
+                                    <span class="tech-tag">Agent Workflow</span>
                                 </div>
                             </div>
-                        </div>
+                        </article>
+
+                        <article class="experience-card">
+                            <div class="experience-logo">
+                                <img src="SL_NTU.png" alt="National Taiwan University">
+                            </div>
+                            <div class="experience-content">
+                                <h3>リサーチアシスタント</h3>
+                                <div class="experience-company">国立台湾大学 情報工学科</div>
+                                <div class="experience-meta">
+                                    <span><i class="fas fa-flask"></i> AI応用統合研究室</span>
+                                    <span><i class="fas fa-calendar"></i> 2024年9月 - 現在</span>
+                                </div>
+                                <div class="experience-description">
+                                    <ul>
+                                        <li>continual test-time adaptation と parameter-efficient adaptation を研究し、分布シフトと長期運用での頑健性を改善。</li>
+                                        <li>NTUH の handheld ultrasound pipeline 向け segmentation model を開発し、リアルタイム臨床 workflow と接続。</li>
+                                        <li>NVIDIA FLARE による連合学習 workflow を統合し、NCKUH とのプライバシー保護分散学習を支援。</li>
+                                    </ul>
+                                </div>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">PyTorch</span>
+                                    <span class="tech-tag">CUDA</span>
+                                    <span class="tech-tag">Docker</span>
+                                    <span class="tech-tag">NVIDIA FLARE</span>
+                                    <span class="tech-tag">OpenCV</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="experience-card">
+                            <div class="experience-logo">
+                                <img src="WL_CGUMF.png" alt="Chang Gung Memorial Hospital">
+                            </div>
+                            <div class="experience-content">
+                                <h3>リサーチアシスタント</h3>
+                                <div class="experience-company">林口長庚記念病院</div>
+                                <div class="experience-meta">
+                                    <span><i class="fas fa-hospital"></i> 早期療育研究センター</span>
+                                    <span><i class="fas fa-calendar"></i> 2024年1月 - 2025年1月</span>
+                                </div>
+                                <div class="experience-description">
+                                    <ul>
+                                        <li>Android と computer vision workflow による微細運動評価を開発し、症例登録とデジタル管理効率を50%以上改善。</li>
+                                        <li>医師と BOT-2-based digital assessment flow を共同設計し、一貫性と評価精度を20%改善。</li>
+                                        <li>二次ベジェ曲線で stroke fitting を最適化し、O(n) のリアルタイム処理を実現。</li>
+                                    </ul>
+                                </div>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Android</span>
+                                    <span class="tech-tag">Java</span>
+                                    <span class="tech-tag">OpenCV</span>
+                                    <span class="tech-tag">TensorFlow</span>
+                                    <span class="tech-tag">Firebase</span>
+                                </div>
+                            </div>
+                        </article>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Experience Section -->
-        <section class="section experience" id="experience">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-label">職務経歴</span>
-                    <h2 class="section-title">専門的経験</h2>
-                    <p class="section-subtitle">研究から産業まで、多様な実務経験を蓄積</p>
-                </div>
-                <div class="experience-grid">
-                    <!-- TSMC -->
-                    <div class="experience-card">
-                        <div class="experience-logo">
-                            <img src="assets/tsmc-logo.png" alt="TSMC" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-microchip\' style=\'font-size:1.5rem;color:var(--primary-color)\'></i>';">
-                        </div>
-                        <div class="experience-content">
-                            <h3>R&Dインターン</h3>
-                            <div class="experience-company">台湾積体電路製造（TSMC）</div>
-                            <div class="experience-meta">
-                                <span><i class="fas fa-building"></i> Design Technology Platform (DTP)</span>
-                                <span><i class="fas fa-calendar"></i> 2025年7月 - 8月</span>
+            <section class="section" id="education">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-label">学歴</span>
+                        <h2 class="section-title">学術基盤</h2>
+                        <p class="section-subtitle">データサイエンス、AI、システム、電気情報工学の基盤。</p>
+                    </div>
+                    <div class="education-grid">
+                        <article class="education-card">
+                            <div class="education-logo">
+                                <img src="SL_NTU.png" alt="NTU">
                             </div>
-                            <div class="experience-description">
+                            <div class="education-content">
+                                <h3><a href="https://www.ntu.edu.tw/" target="_blank" rel="noreferrer">国立台湾大学</a></h3>
+                                <p class="education-degree">データサイエンス修士課程、中央研究院との連携</p>
+                                <div class="education-details">
+                                    <span><i class="fas fa-star"></i> GPA: 4.22/4.30</span>
+                                    <span><i class="fas fa-trophy"></i> Rank: 1/13</span>
+                                    <span><i class="fas fa-graduation-cap"></i> 46 Credits</span>
+                                </div>
+                            </div>
+                            <div class="education-period">2024年9月 - 現在</div>
+                        </article>
+
+                        <article class="education-card">
+                            <div class="education-logo">
+                                <img src="SL_CGU.png" alt="CGU">
+                            </div>
+                            <div class="education-content">
+                                <h3><a href="https://www.cgu.edu.tw/" target="_blank" rel="noreferrer">長庚大学</a></h3>
+                                <p class="education-degree">情報工学科 学士</p>
+                                <div class="education-details">
+                                    <span><i class="fas fa-star"></i> GPA: 3.94/4.00</span>
+                                    <span><i class="fas fa-trophy"></i> Rank: 1/67</span>
+                                    <span><i class="fas fa-award"></i> 卒業生代表</span>
+                                </div>
+                            </div>
+                            <div class="education-period">2020年9月 - 2024年6月</div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section alt" id="projects">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-label">プロジェクト</span>
+                        <h2 class="section-title">AI志向のプロジェクト</h2>
+                        <p class="section-subtitle">AI services、RAG、agents、evaluation、performance engineering に合わせたプロジェクト群。</p>
+                    </div>
+                    <div class="projects-grid">
+                        <article class="project-card">
+                            <div class="project-header">
+                                <span class="project-kicker">AI Services / Healthcare</span>
+                                <h3>ERAS支援スマート医療対話システム</h3>
+                                <span class="project-year">2025</span>
+                            </div>
+                            <div class="project-body">
                                 <ul>
-                                    <li><strong>2025 DTP Intern Conference Top 10入選</strong>、プロジェクト：「LLM-Driven Automation Framework for LVS Deck Coding Copilot and Layout Pattern Constraint Generation」</li>
-                                    <li>Technology File Automation & Physical Design Analysis部門にて、先端プロセスのDRC/LVSルールデッキの自動化ワークフローを検証・加速するAI/MLモデルを開発・適用</li>
-                                    <li>マルチエージェントシステムとLoRAチューニングLLMを活用したAIフレームワークを設計、レイアウトパターンから内部仕様設定を自動生成し、主要EDAベンダープラットフォーム間でルールデッキ構文を変換</li>
+                                    <li>on-premises healthcare chatbot concept を構築し、多言語 RAG と LoRA で臨床 Q&amp;A と個別ケア workflow を支援。</li>
+                                    <li>semantic knowledge base、QA/VQA benchmark、自動評価と専門家評価を組み合わせた信頼性パイプラインを設計。</li>
                                 </ul>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">Flask</span>
+                                    <span class="tech-tag">SQLite</span>
+                                    <span class="tech-tag">RAG</span>
+                                    <span class="tech-tag">LoRA</span>
+                                    <span class="tech-tag">Evaluation</span>
+                                </div>
                             </div>
-                            <div class="tech-tags">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">PyTorch</span>
-                                <span class="tech-tag">LangChain</span>
-                                <span class="tech-tag">LoRA</span>
-                                <span class="tech-tag">EDA</span>
-                            </div>
-                        </div>
-                    </div>
+                        </article>
 
-                    <!-- NTU RA -->
-                    <div class="experience-card">
-                        <div class="experience-logo">
-                            <img src="SL_NTU.png" alt="NTU">
-                        </div>
-                        <div class="experience-content">
-                            <h3>リサーチアシスタント</h3>
-                            <div class="experience-company">国立台湾大学 情報工学科</div>
-                            <div class="experience-meta">
-                                <span><i class="fas fa-flask"></i> AI応用統合研究室</span>
-                                <span><i class="fas fa-calendar"></i> 2024年9月 - 現在</span>
+                        <article class="project-card">
+                            <div class="project-header">
+                                <span class="project-kicker">Robust AI Research</span>
+                                <h3>OVSS Continual Test-Time Adaptation Research Platform</h3>
+                                <span class="project-year">2026</span>
                             </div>
-                            <div class="experience-description">
+                            <div class="project-body">
                                 <ul>
-                                    <li>医療MLLMsのContinual PEFT研究を実施、モデルの適応性と効率を向上</li>
-                                    <li>台大病院のハンドヘルド超音波用セグメンテーションモデルを開発、リアルタイム医療画像処理パイプラインを最適化</li>
-                                    <li>成功大学病院との連合学習によるAI協業を統合、プライバシーを保護した分散トレーニングを実現</li>
+                                    <li>open-vocabulary semantic segmentation の continual domain shift 下での安定適応を研究。source data やラベルなしでの長期安定性を重視。</li>
+                                    <li>CLIP/NACLIP adaptation、DINOv2-based evaluation refinement、ACDC / OnDA benchmark 実験 pipeline を実装。</li>
                                 </ul>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">PyTorch</span>
+                                    <span class="tech-tag">CLIP</span>
+                                    <span class="tech-tag">DINOv2</span>
+                                    <span class="tech-tag">CTTA</span>
+                                    <span class="tech-tag">Segmentation</span>
+                                </div>
                             </div>
-                            <div class="tech-tags">
-                                <span class="tech-tag">PyTorch</span>
-                                <span class="tech-tag">CUDA</span>
-                                <span class="tech-tag">Docker</span>
-                                <span class="tech-tag">NVIDIA FLARE</span>
-                                <span class="tech-tag">OpenCV</span>
-                            </div>
-                        </div>
-                    </div>
+                        </article>
 
-                    <!-- CGMH RA -->
-                    <div class="experience-card">
-                        <div class="experience-logo">
-                            <img src="WL_CGUMF.png" alt="CGMH">
-                        </div>
-                        <div class="experience-content">
-                            <h3>リサーチアシスタント</h3>
-                            <div class="experience-company">林口長庚記念病院</div>
-                            <div class="experience-meta">
-                                <span><i class="fas fa-hospital"></i> 早期療育研究センター</span>
-                                <span><i class="fas fa-calendar"></i> 2024年1月 - 2025年1月</span>
+                        <article class="project-card">
+                            <div class="project-header">
+                                <span class="project-kicker">Performance Engineering</span>
+                                <h3>高性能並列計算とGPUアクセラレーション</h3>
+                                <span class="project-year">2025</span>
                             </div>
-                            <div class="experience-description">
+                            <div class="project-body">
                                 <ul>
-                                    <li>早期療育センター向けに微細運動スキル評価用Androidアプリを開発、コンピュータビジョンによる自動ケース取り込みとFirebaseによるデジタル管理を統合し、プロセス効率を50%以上向上</li>
-                                    <li>医師と共同でBOT-2ベースの標準化評価手法を設計、デジタルテスト向けに厳密に最適化し、信頼性と微細運動スキル評価精度を20%向上</li>
-                                    <li>二次ベジェ曲線を用いたストロークフィッティングを最適化、リアルタイム処理でO(n)時間計算量を達成</li>
+                                    <li>shared memory、padding、Nsight Compute analysis で CUDA kernels を最適化し、bank conflicts を削減して throughput を改善。</li>
+                                    <li>MPI、OpenMP、AVX-512 vectorization、memory alignment により distributed attention と convolution kernels を実装。</li>
                                 </ul>
-                            </div>
-                            <div class="tech-tags">
-                                <span class="tech-tag">Android</span>
-                                <span class="tech-tag">Java</span>
-                                <span class="tech-tag">OpenCV</span>
-                                <span class="tech-tag">TensorFlow</span>
-                                <span class="tech-tag">Firebase</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section class="section education" id="education">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-label">学歴</span>
-                    <h2 class="section-title">学術背景</h2>
-                    <p class="section-subtitle">確固たる学術訓練で、研究とエンジニアリングの強固な基盤を構築</p>
-                </div>
-                <div class="education-grid">
-                    <!-- NTU -->
-                    <div class="education-card">
-                        <div class="education-logo">
-                            <img src="SL_NTU.png" alt="NTU">
-                        </div>
-                        <div class="education-content">
-                            <h3><a href="https://www.ntu.edu.tw/" target="_blank">国立台湾大学</a></h3>
-                            <p class="education-degree">データサイエンス修士課程（中央研究院との連携）</p>
-                            <div class="education-details">
-                                <span class="gpa"><i class="fas fa-star"></i> GPA: 4.22/4.30</span>
-                                <span class="rank"><i class="fas fa-trophy"></i> 学科順位: 1/13</span>
-                            </div>
-                        </div>
-                        <div class="education-period">2024年9月 - 現在</div>
-                    </div>
-
-                    <!-- CGU -->
-                    <div class="education-card">
-                        <div class="education-logo">
-                            <img src="SL_CGU.png" alt="CGU">
-                        </div>
-                        <div class="education-content">
-                            <h3><a href="https://www.cgu.edu.tw/" target="_blank">長庚大学</a></h3>
-                            <p class="education-degree">情報工学科 学士</p>
-                            <div class="education-details">
-                                <span class="gpa"><i class="fas fa-star"></i> GPA: 3.94/4.00</span>
-                                <span class="rank"><i class="fas fa-trophy"></i> 学科順位: 1/67（卒業生代表）</span>
-                            </div>
-                        </div>
-                        <div class="education-period">2020年9月 - 2024年6月</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section class="section projects" id="projects">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-label">プロジェクト</span>
-                    <h2 class="section-title">主要プロジェクト</h2>
-                    <p class="section-subtitle">低レベルシステムから高性能コンピューティングまで、包括的な技術力を実証</p>
-                </div>
-                <div class="projects-grid">
-                    <!-- Project 1 -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3>高性能並列コンピューティング & GPUアクセラレーション</h3>
-                            <span class="project-year">2025</span>
-                        </div>
-                        <div class="project-body">
-                            <ul>
-                                <li>共有メモリとパディング技術を活用してCUDAカーネルの行列演算を最適化、shared memory bank conflictsを解決し、Nsight Computeで性能指標を分析</li>
-                                <li>MPIとOpenMPを使用して分散Attentionメカニズムと畳み込みアルゴリズムを実装、AVX-512ベクトル化とメモリアライメントでスループットを向上</li>
-                            </ul>
-                            <div class="tech-tags">
-                                <span class="tech-tag">C/C++</span>
-                                <span class="tech-tag">CUDA</span>
-                                <span class="tech-tag">MPI</span>
-                                <span class="tech-tag">OpenMP</span>
-                                <span class="tech-tag">AVX-512</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3>リアルタイムOSスケジューラ設計 & Linuxカーネル修正</h3>
-                            <span class="project-year">2024</span>
-                        </div>
-                        <div class="project-body">
-                            <ul>
-                                <li>µC/OS-IIカーネルにリアルタイムスケジューリングアルゴリズム（EDF、Rate Monotonic）とPriority Inheritance Protocol（PIP）を実装、タスク同期を管理し優先度逆転を解決</li>
-                                <li>Linux Kernel（v5.15）ソースコードを修正してカスタムシステムコールを登録、ロード可能カーネルモジュール（LKM）を開発してカーネル空間との相互作用を促進</li>
-                            </ul>
-                            <div class="tech-tags">
-                                <span class="tech-tag">C</span>
-                                <span class="tech-tag">µC/OS-II</span>
-                                <span class="tech-tag">Linux Kernel</span>
-                                <span class="tech-tag">System Calls</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3>BIG8051マイコンプロジェクト：GLCDスネークゲーム</h3>
-                            <span class="project-year">2023</span>
-                        </div>
-                        <div class="project-body">
-                            <ul>
-                                <li>C言語で低レベルGLCDドライバを作成、I/Oポートと制御信号（RS/RW）を直接操作してページアドレッシングを実装し、128x64ビットマップグラフィックスをレンダリング</li>
-                                <li>タイマー割り込みとGPIOを活用して有限状態機械を実装、リアルタイムゲームロジック、精密な音声周波数生成、ベアメタルハードウェアでの応答性の高いユーザー入力処理を実現</li>
-                            </ul>
-                            <div class="tech-tags">
-                                <span class="tech-tag">C</span>
-                                <span class="tech-tag">Assembly</span>
-                                <span class="tech-tag">GLCD</span>
-                                <span class="tech-tag">GPIO</span>
-                                <span class="tech-tag">Interrupts</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section class="section skills" id="skills">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-label">技術スキル</span>
-                    <h2 class="section-title">専門スキル</h2>
-                    <p class="section-subtitle">低レベルシステムからアプリケーション開発まで包括的な技術スタック</p>
-                </div>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3><i class="fas fa-code"></i> プログラミング言語</h3>
-                        <div class="skill-items">
-                            <span class="skill-item">Python</span>
-                            <span class="skill-item">C/C++</span>
-                            <span class="skill-item">Java</span>
-                            <span class="skill-item">CUDA</span>
-                            <span class="skill-item">Assembly</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-brain"></i> AI/MLフレームワーク</h3>
-                        <div class="skill-items">
-                            <span class="skill-item">PyTorch</span>
-                            <span class="skill-item">TensorFlow</span>
-                            <span class="skill-item">Keras</span>
-                            <span class="skill-item">LangChain</span>
-                            <span class="skill-item">Unsloth</span>
-                            <span class="skill-item">NVIDIA FLARE</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-server"></i> システム & ツール</h3>
-                        <div class="skill-items">
-                            <span class="skill-item">Docker</span>
-                            <span class="skill-item">Linux</span>
-                            <span class="skill-item">Git</span>
-                            <span class="skill-item">MPI</span>
-                            <span class="skill-item">OpenMP</span>
-                            <span class="skill-item">NCHC</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-mobile-alt"></i> アプリ開発</h3>
-                        <div class="skill-items">
-                            <span class="skill-item">Android Studio</span>
-                            <span class="skill-item">OpenCV</span>
-                            <span class="skill-item">Firebase</span>
-                            <span class="skill-item">Scikit-learn</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="section contact" id="contact">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-label">連絡先</span>
-                    <h2 class="section-title">お問い合わせ</h2>
-                    <p class="section-subtitle">コラボレーションや学術交流のご連絡をお待ちしております</p>
-                </div>
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <h3>お気軽にご連絡ください</h3>
-                        <p>研究協力、就職機会、または技術について話し合いたい場合など、お気軽にご連絡ください！</p>
-                        <div class="contact-items">
-                            <div class="contact-item">
-                                <div class="contact-item-icon">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <div class="contact-item-content">
-                                    <h4>メール</h4>
-                                    <a href="mailto:Gary304666@gmail.com">Gary304666@gmail.com</a>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">C/C++</span>
+                                    <span class="tech-tag">CUDA</span>
+                                    <span class="tech-tag">MPI</span>
+                                    <span class="tech-tag">OpenMP</span>
+                                    <span class="tech-tag">AVX-512</span>
+                                    <span class="tech-tag">Nsight Compute</span>
                                 </div>
                             </div>
-                            <div class="contact-item">
-                                <div class="contact-item-icon">
-                                    <i class="fas fa-phone"></i>
-                                </div>
-                                <div class="contact-item-content">
-                                    <h4>電話</h4>
-                                    <p>+886 963-517-040</p>
+                        </article>
+
+                        <article class="project-card">
+                            <div class="project-header">
+                                <span class="project-kicker">Privacy-Preserving AI</span>
+                                <h3>連合医療画像AIコラボレーション</h3>
+                                <span class="project-year">2024 - Present</span>
+                            </div>
+                            <div class="project-body">
+                                <ul>
+                                    <li>NVIDIA FLARE-based training workflow を統合し、医療 AI 協力で敏感データを各参加機関内に保持。</li>
+                                    <li>segmentation model development と privacy、reproducibility、臨床データ制約を接続。</li>
+                                </ul>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">NVIDIA FLARE</span>
+                                    <span class="tech-tag">PyTorch</span>
+                                    <span class="tech-tag">Docker</span>
+                                    <span class="tech-tag">Medical AI</span>
+                                    <span class="tech-tag">Privacy</span>
                                 </div>
                             </div>
-                            <div class="contact-item">
-                                <div class="contact-item-icon">
-                                    <i class="fas fa-map-marker-alt"></i>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="skills">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-label">スキル</span>
+                        <h2 class="section-title">AIアプリケーション開発向け技術スタック</h2>
+                        <p class="section-subtitle">AIシステム、バックエンド基盤、評価設計、ハードウェア隣接の工程理解を組み合わせています。</p>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h3><i class="fas fa-code"></i> 言語</h3>
+                            <div class="skill-items">
+                                <span class="skill-item">Python</span>
+                                <span class="skill-item">C/C++</span>
+                                <span class="skill-item">Java</span>
+                                <span class="skill-item">CUDA</span>
+                                <span class="skill-item">SQL</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3><i class="fas fa-brain"></i> AI応用</h3>
+                            <div class="skill-items">
+                                <span class="skill-item">PyTorch</span>
+                                <span class="skill-item">LangChain</span>
+                                <span class="skill-item">RAG</span>
+                                <span class="skill-item">LoRA</span>
+                                <span class="skill-item">Unsloth</span>
+                                <span class="skill-item">Evaluation</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3><i class="fas fa-server"></i> システム</h3>
+                            <div class="skill-items">
+                                <span class="skill-item">Docker</span>
+                                <span class="skill-item">Linux</span>
+                                <span class="skill-item">Git</span>
+                                <span class="skill-item">Flask</span>
+                                <span class="skill-item">SQLite</span>
+                                <span class="skill-item">NVIDIA FLARE</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3><i class="fas fa-microchip"></i> 工程文脈</h3>
+                            <div class="skill-items">
+                                <span class="skill-item">EDA Automation</span>
+                                <span class="skill-item">DRC/LVS Context</span>
+                                <span class="skill-item">CUDA</span>
+                                <span class="skill-item">MPI</span>
+                                <span class="skill-item">OpenMP</span>
+                                <span class="skill-item">Nsight Compute</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section alt" id="contact">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-label">連絡先</span>
+                        <h2 class="section-title">AIアプリケーションエンジニアリングの機会に関心があります</h2>
+                        <p class="section-subtitle">LLM services、RAG、agents、developer workflow automation、hardware/SOC engineering context に特に興味があります。</p>
+                    </div>
+                    <div class="contact-content">
+                        <div class="contact-panel">
+                            <h3>公開連絡先</h3>
+                            <p>仕事、研究、共同開発の相談には以下の公開チャンネルをご利用ください。</p>
+                            <div class="contact-items">
+                                <div class="contact-item">
+                                    <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+                                    <div class="contact-item-content">
+                                        <h4>Email</h4>
+                                        <a href="mailto:Gary304666@gmail.com">Gary304666@gmail.com</a>
+                                    </div>
                                 </div>
-                                <div class="contact-item-content">
-                                    <h4>所在地</h4>
-                                    <p>台湾、台北市</p>
+                                <div class="contact-item">
+                                    <div class="contact-item-icon"><i class="fab fa-github"></i></div>
+                                    <div class="contact-item-content">
+                                        <h4>GitHub</h4>
+                                        <a href="https://github.com/Gary20011207" target="_blank" rel="noreferrer">github.com/Gary20011207</a>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-item-icon"><i class="fab fa-linkedin-in"></i></div>
+                                    <div class="contact-item-content">
+                                        <h4>LinkedIn</h4>
+                                        <a href="https://www.linkedin.com/in/gary20011207/" target="_blank" rel="noreferrer">linkedin.com/in/gary20011207</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="contact-social">
-                            <h4>ソーシャルメディア</h4>
-                            <div class="social-links">
-                                <a href="https://github.com/Gary20011207" target="_blank" title="GitHub">
-                                    <i class="fab fa-github"></i>
+                        <div class="resume-panel">
+                            <div>
+                                <h3>履歴書</h3>
+                                <p>
+                                    LLM services、RAG、agents、privacy-preserving AI、semiconductor automation に合わせて
+                                    AI application engineering 向けに再構成した履歴書です。
+                                </p>
+                            </div>
+                            <div class="resume-actions">
+                                <a href="/Resume.pdf" target="_blank" rel="noreferrer" class="btn btn-primary">
+                                    <i class="fas fa-file-lines"></i> 履歴を見る
                                 </a>
-                                <a href="https://www.linkedin.com/in/%E5%86%A0%E5%AE%87-%E9%99%B3-253281244/" target="_blank" title="LinkedIn">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="https://www.instagram.com/gary20011207/" target="_blank" title="Instagram">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="https://www.facebook.com/DivineXzone/" target="_blank" title="Facebook">
-                                    <i class="fab fa-facebook-f"></i>
+                                <a href="mailto:Gary304666@gmail.com" class="btn btn-secondary">
+                                    <i class="fas fa-paper-plane"></i> 連絡する
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="contact-map">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.0027456789!2d121.5397!3d25.0173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442aa27539b4a33%3A0x7f893e1d3f9c3e45!2z5ZyL56uL5Y-w54Gj5aSn5a24!5e0!3m2!1sja!2stw!4v1234567890"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </main>
 
-        <!-- Footer -->
         <footer class="footer">
             <div class="footer-container">
-                <div class="footer-content">
+                <div>
                     <div class="footer-logo">Gary Chen</div>
-                    <div class="footer-social">
-                        <a href="https://github.com/Gary20011207" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/%E5%86%A0%E5%AE%87-%E9%99%B3-253281244/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="mailto:Gary304666@gmail.com"><i class="fas fa-envelope"></i></a>
-                    </div>
+                    <p>&copy; 2026 Guan-Yu Chen. Built for GitHub Pages.</p>
                 </div>
-                <div class="footer-bottom">
-                    <p>&copy; 2025 Guan-Yu Chen. All Rights Reserved.</p>
+                <div class="footer-social" aria-label="Footer links">
+                    <a href="https://github.com/Gary20011207" target="_blank" rel="noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/gary20011207/" target="_blank" rel="noreferrer" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:Gary304666@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </footer>
 
-        <!-- Scroll to Top Button -->
-        <button class="scroll-top" id="scroll-top">
+        <button class="scroll-top" id="scroll-top" type="button" aria-label="トップへ戻る">
             <i class="fas fa-arrow-up"></i>
         </button>
     </div>
 
-    <script src="home.js"></script>
+    <script src="home.js?v=20260517"></script>
 </body>
 </html>
