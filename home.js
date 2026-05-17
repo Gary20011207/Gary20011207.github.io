@@ -154,12 +154,13 @@ document.addEventListener("DOMContentLoaded", () => {
             canvas.width = Math.floor(width * ratio);
             canvas.height = Math.floor(height * ratio);
             context.setTransform(ratio, 0, 0, ratio, 0, 0);
-            codeRows = Array.from({ length: Math.min(34, Math.max(18, Math.floor(height / 25))) }, (_, index) => ({
-                x: 24 + (index % 5) * 58,
-                y: 72 + index * 25 + (index % 2) * 4,
-                phase: index * 11,
-                speed: 13 + (index % 6) * 2.2,
-                hold: 18 + (index % 5) * 5,
+            codeRows = Array.from({ length: Math.min(32, Math.max(18, Math.floor(height / 26))) }, (_, index) => ({
+                x: 36 + (index % 4) * 22,
+                y: 74 + index * 24,
+                indent: " ".repeat((index % 5) * 2),
+                phase: index * 13,
+                speed: 16 + (index % 6) * 2.6,
+                hold: 16 + (index % 4) * 7,
                 snippetIndex: index % codeSnippets.length,
             }));
         }
@@ -181,33 +182,47 @@ document.addEventListener("DOMContentLoaded", () => {
             context.save();
             context.font = "650 12px 'SFMono-Regular', Menlo, Consolas, monospace";
             context.textBaseline = "top";
-            context.shadowBlur = isDark ? 8 : 1.5;
+            context.shadowBlur = isDark ? 9 : 1.8;
 
             codeRows.forEach((row, index) => {
                 const lineNumber = String(index + 1).padStart(2, "0");
-                const tag = codeTags[(index * 3 + Math.floor(time / 1600)) % codeTags.length];
-                const code = `${codeSnippets[row.snippetIndex]}    // ${tag}`;
+                const tag = codeTags[(index * 3 + Math.floor(time / 2400)) % codeTags.length];
+                const code = `${row.indent}${codeSnippets[row.snippetIndex]}    // ${tag}`;
+                const x = row.x;
+                const y = row.y;
+                const verticalFade = 1 - Math.min(Math.abs(y - height * 0.52) / Math.max(height * 0.72, 1), 1);
                 const cycle = code.length + row.hold;
                 const progress = ((time / 1000) * row.speed + row.phase) % cycle;
                 const visibleChars = Math.min(code.length, Math.floor(progress));
                 const typed = code.slice(0, visibleChars);
-                const x = row.x;
-                const y = row.y;
-                const verticalFade = 1 - Math.min(Math.abs(y - height * 0.52) / Math.max(height * 0.72, 1), 1);
-                const ghostAlpha = (isDark ? 0.055 : 0.035) + verticalFade * (isDark ? 0.065 : 0.035);
-                const activeAlpha = (isDark ? 0.18 : 0.11) + verticalFade * (isDark ? 0.24 : 0.14);
+                const baseWidth = 34;
+                const gutterAlpha = (isDark ? 0.18 : 0.10) + verticalFade * (isDark ? 0.10 : 0.06);
+                const activeAlpha = (isDark ? 0.25 : 0.15) + verticalFade * (isDark ? 0.30 : 0.18);
 
                 context.shadowColor = "transparent";
-                context.fillStyle = themeColor(ghostAlpha, "text");
-                context.fillText(`${lineNumber}  ${code}`, x, y);
+                context.fillStyle = themeColor(gutterAlpha, "text");
+                context.fillText(lineNumber, x, y);
 
-                context.shadowColor = index % 3 === 0 ? themeColor(activeAlpha, "green") : themeColor(activeAlpha, "cyan");
-                context.fillStyle = themeColor(activeAlpha, index % 4 === 0 ? "green" : "cyan");
-                context.fillText(`${lineNumber}  ${typed}`, x, y);
+                if (visibleChars <= 0) {
+                    return;
+                }
 
-                if (visibleChars > 0 && (progress < code.length || Math.floor(time / 420 + index) % 2 === 0)) {
-                    const cursorX = x + context.measureText(`${lineNumber}  ${typed}`).width + 4;
-                    context.fillStyle = themeColor(isDark ? 0.55 : 0.34, "green");
+                const cursorX = x + baseWidth + context.measureText(typed).width + 4;
+                const tone = index % 4 === 0 ? "green" : index % 3 === 0 ? "cyan" : "text";
+
+                context.shadowColor = themeColor(activeAlpha, tone);
+                context.fillStyle = themeColor(activeAlpha, tone);
+                context.fillText(typed, x + baseWidth, y);
+
+                context.strokeStyle = themeColor(isDark ? 0.28 : 0.16, "green");
+                context.lineWidth = 1;
+                context.beginPath();
+                context.moveTo(x + baseWidth, y + 17.5);
+                context.lineTo(cursorX, y + 17.5);
+                context.stroke();
+
+                if (progress < code.length || Math.floor(time / 420 + index) % 2 === 0) {
+                    context.fillStyle = themeColor(isDark ? 0.72 : 0.42, "green");
                     context.fillRect(cursorX, y + 1, 2, 13);
                 }
             });
