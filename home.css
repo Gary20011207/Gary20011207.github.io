@@ -19,6 +19,7 @@
     --success-color: #0f766e;
     --grid-color: rgba(37, 99, 235, 0.09);
     --code-color: rgba(37, 99, 235, 0.16);
+    --focus-ring: 0 0 0 3px color-mix(in srgb, var(--primary-color) 26%, transparent);
     --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
     --shadow-md: 0 12px 28px rgba(15, 23, 42, 0.10);
     --shadow-lg: 0 24px 60px rgba(15, 23, 42, 0.14);
@@ -46,6 +47,7 @@
     --success-color: #5eead4;
     --grid-color: rgba(96, 165, 250, 0.14);
     --code-color: rgba(148, 163, 184, 0.18);
+    --focus-ring: 0 0 0 3px color-mix(in srgb, var(--secondary-color) 24%, transparent);
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
     --shadow-md: 0 16px 34px rgba(0, 0, 0, 0.35);
     --shadow-lg: 0 30px 70px rgba(0, 0, 0, 0.45);
@@ -61,6 +63,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 86px;
 }
 
 body {
@@ -69,6 +72,11 @@ body {
     color: var(--text-primary);
     line-height: 1.7;
     overflow-x: hidden;
+}
+
+::selection {
+    color: #ffffff;
+    background: color-mix(in srgb, var(--primary-color) 78%, var(--secondary-color));
 }
 
 body::before {
@@ -93,6 +101,12 @@ a {
 
 a:hover {
     color: var(--primary-dark);
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 0;
+    box-shadow: var(--focus-ring);
 }
 
 ul,
@@ -126,6 +140,18 @@ button {
     backdrop-filter: blur(18px);
     border-bottom: 1px solid var(--border-color);
     transition: box-shadow var(--transition-normal), background var(--transition-normal);
+}
+
+.scroll-progress {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 2px;
+    transform: scaleX(var(--scroll-progress, 0));
+    transform-origin: left center;
+    background: var(--gradient-brand);
+    box-shadow: 0 0 18px color-mix(in srgb, var(--primary-color) 42%, transparent);
 }
 
 .header.scrolled {
@@ -603,11 +629,15 @@ button {
 }
 
 .section {
-    padding: 4.6rem 1.5rem;
+    padding: 4.1rem 1.5rem;
 }
 
 .section.alt {
-    background: var(--bg-secondary);
+    background:
+        linear-gradient(180deg, color-mix(in srgb, var(--bg-secondary) 86%, transparent), var(--bg-secondary)),
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: auto, 52px 52px, 52px 52px;
 }
 
 .section-container {
@@ -729,11 +759,26 @@ button {
 .education-card,
 .project-card,
 .skill-category {
+    position: relative;
+    overflow: hidden;
     border: 1px solid var(--border-color);
     border-radius: 8px;
     background: var(--surface);
     box-shadow: var(--shadow-sm);
     transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+}
+
+.experience-card::before,
+.education-card::before,
+.project-card::before,
+.skill-category::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 3px;
+    background: var(--gradient-brand);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
 }
 
 .experience-card:hover,
@@ -743,6 +788,13 @@ button {
     transform: translateY(-4px);
     border-color: color-mix(in srgb, var(--primary-color) 42%, var(--border-color));
     box-shadow: var(--shadow-md);
+}
+
+.experience-card:hover::before,
+.education-card:hover::before,
+.project-card:hover::before,
+.skill-category:hover::before {
+    opacity: 1;
 }
 
 .experience-card {
@@ -914,7 +966,7 @@ button {
 
 @media (min-width: 981px) {
     .project-card {
-        min-height: 524px;
+        min-height: 430px;
     }
 }
 
@@ -976,6 +1028,12 @@ button {
     border: 1px solid var(--border-color);
     border-radius: 8px;
     background: var(--surface-strong);
+    transition: border-color var(--transition-fast), transform var(--transition-fast), background var(--transition-fast);
+}
+
+.contact-item:hover {
+    border-color: color-mix(in srgb, var(--primary-color) 34%, var(--border-color));
+    transform: translateX(2px);
 }
 
 .contact-item-icon {
@@ -1119,6 +1177,10 @@ button {
 }
 
 @media (max-width: 1120px) {
+    body.nav-open {
+        overflow: hidden;
+    }
+
     .nav-menu {
         position: absolute;
         top: 72px;
@@ -1132,6 +1194,8 @@ button {
         border-radius: 8px;
         background: var(--surface);
         box-shadow: var(--shadow-md);
+        max-height: calc(100vh - 88px);
+        overflow: auto;
     }
 
     .nav-menu.active {

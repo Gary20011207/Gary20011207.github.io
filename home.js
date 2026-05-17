@@ -4,8 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const navMenu = document.getElementById("nav-menu");
     const mobileMenuBtn = document.getElementById("mobile-menu-btn");
     const scrollTopBtn = document.getElementById("scroll-top");
+    const scrollProgress = document.getElementById("scroll-progress");
     const themeToggle = document.getElementById("theme-toggle");
     const navLinks = document.querySelectorAll(".nav-menu a");
+    const themeMeta = document.querySelector('meta[name="theme-color"]');
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     function preferredTheme() {
@@ -19,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function setTheme(theme) {
         root.dataset.theme = theme;
         localStorage.setItem("theme", theme);
+        themeMeta?.setAttribute("content", theme === "dark" ? "#070b12" : "#fbfcff");
         if (themeToggle) {
             const label = theme === "dark" ? "Switch to light mode" : "Switch to dark mode";
             themeToggle.setAttribute("aria-label", label);
@@ -34,11 +37,36 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    function closeMobileMenu() {
+        navMenu?.classList.remove("active");
+        mobileMenuBtn?.classList.remove("active");
+        mobileMenuBtn?.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("nav-open");
+    }
+
     if (mobileMenuBtn && navMenu) {
-        mobileMenuBtn.addEventListener("click", () => {
+        mobileMenuBtn.addEventListener("click", (event) => {
+            event.stopPropagation();
             const isOpen = navMenu.classList.toggle("active");
             mobileMenuBtn.classList.toggle("active", isOpen);
             mobileMenuBtn.setAttribute("aria-expanded", String(isOpen));
+            document.body.classList.toggle("nav-open", isOpen);
+        });
+
+        document.addEventListener("click", (event) => {
+            if (!navMenu.classList.contains("active")) {
+                return;
+            }
+            const target = event.target;
+            if (target instanceof Node && !navMenu.contains(target) && !mobileMenuBtn.contains(target)) {
+                closeMobileMenu();
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                closeMobileMenu();
+            }
         });
     }
 
@@ -56,9 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 window.scrollTo({ top, behavior: reduceMotion ? "auto" : "smooth" });
             }
 
-            navMenu?.classList.remove("active");
-            mobileMenuBtn?.classList.remove("active");
-            mobileMenuBtn?.setAttribute("aria-expanded", "false");
+            closeMobileMenu();
         });
     });
 
@@ -82,6 +108,9 @@ document.addEventListener("DOMContentLoaded", () => {
     function handleScroll() {
         header?.classList.toggle("scrolled", window.scrollY > 40);
         scrollTopBtn?.classList.toggle("visible", window.scrollY > 520);
+        const scrollable = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+        const progress = Math.min(Math.max(window.scrollY / scrollable, 0), 1);
+        scrollProgress?.style.setProperty("--scroll-progress", progress.toFixed(4));
         updateActiveNavLink();
     }
 
