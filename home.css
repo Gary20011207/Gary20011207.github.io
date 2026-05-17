@@ -1184,17 +1184,64 @@ button {
 }
 
 @media (max-width: 720px) {
+    .header {
+        background: color-mix(in srgb, var(--bg-primary) 94%, transparent);
+    }
+
+    .nav-container {
+        height: 64px;
+        gap: 0.55rem;
+    }
+
     .nav-container {
         padding: 0 1rem;
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+
+    .logo-mark {
+        width: 0.68rem;
+        height: 0.68rem;
+        margin-right: 0.38rem;
+        box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary-color) 14%, transparent);
+    }
+
+    .nav-right {
+        gap: 0.4rem;
+    }
+
+    .nav-menu {
+        top: 64px;
+        left: 0.75rem;
+        right: 0.75rem;
     }
 
     .resume-nav {
         display: none;
     }
 
+    .theme-toggle,
+    .mobile-menu-btn {
+        width: 2.25rem;
+        height: 2.25rem;
+    }
+
+    .lang-switcher {
+        padding: 0.18rem;
+    }
+
     .lang-switcher a {
         min-width: 1.85rem;
         padding: 0.32rem 0.38rem;
+    }
+
+    .hero {
+        min-height: auto;
+        padding-top: 6.2rem;
+        padding-bottom: 3rem;
+        align-items: flex-start;
     }
 
     .hero,
@@ -1203,8 +1250,41 @@ button {
         padding-right: 1rem;
     }
 
+    .hero::after {
+        background:
+            linear-gradient(to bottom, color-mix(in srgb, var(--bg-primary) 56%, transparent), color-mix(in srgb, var(--bg-primary) 28%, transparent) 44%, color-mix(in srgb, var(--bg-primary) 58%, transparent)),
+            linear-gradient(90deg, color-mix(in srgb, var(--bg-primary) 72%, transparent), transparent 76%);
+    }
+
+    [data-theme="dark"] .hero::after {
+        background:
+            linear-gradient(to bottom, rgba(4, 7, 12, 0.54), rgba(4, 7, 12, 0.24) 46%, rgba(4, 7, 12, 0.58)),
+            linear-gradient(90deg, rgba(4, 7, 12, 0.64), transparent 78%);
+    }
+
+    .hero-container {
+        gap: 2.2rem;
+    }
+
+    .hero-eyebrow {
+        margin-bottom: 0.85rem;
+    }
+
+    .hero-name {
+        margin-bottom: 0.7rem;
+        font-size: clamp(2.35rem, 14vw, 3.75rem);
+    }
+
     .hero-title {
-        font-size: 1.28rem;
+        margin-bottom: 0.85rem;
+        font-size: 1.08rem;
+        line-height: 1.45;
+    }
+
+    .hero-description {
+        margin-bottom: 1rem;
+        font-size: 0.94rem;
+        line-height: 1.72;
     }
 
     .hero-eyebrow,
@@ -1212,17 +1292,119 @@ button {
         font-size: 0.72rem;
     }
 
+    .capability-rail {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.5rem;
+        margin-bottom: 1.1rem;
+    }
+
+    .capability-rail span {
+        min-width: 0;
+        padding: 0.52rem 0.58rem;
+        font-size: 0.8rem;
+        line-height: 1.25;
+    }
+
+    .capability-rail span:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .hero-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.58rem;
+        margin-bottom: 1.15rem;
+    }
+
+    .stat-item {
+        padding: 0.82rem;
+    }
+
+    .stat-number {
+        font-size: 1.32rem;
+    }
+
+    .stat-label {
+        font-size: 0.76rem;
+    }
+
     .hero-buttons,
     .resume-actions {
         flex-direction: column;
+        gap: 0.7rem;
     }
 
     .btn {
         width: 100%;
+        min-height: 2.85rem;
+        padding: 0.75rem 1rem;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .hero-visual {
+        justify-content: center;
+    }
+
+    .portrait-card {
+        width: min(300px, 82vw);
+        padding: 0.58rem;
+    }
+
+    .portrait-card::before {
+        inset: 0.6rem -0.55rem -0.55rem 0.6rem;
+    }
+
+    .system-card {
+        width: min(100%, 300px);
+        max-width: none;
+        padding: 0.9rem;
+    }
+
+    .system-card strong {
+        font-size: 0.74rem;
+    }
+
+    .system-card span {
+        font-size: 0.82rem;
+    }
+
+    .section {
+        padding-top: 3.6rem;
+        padding-bottom: 3.6rem;
+    }
+
+    .section-header {
+        margin-bottom: 1.8rem;
+        text-align: left;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .text-panel,
+    .contact-panel,
+    .resume-panel,
+    .skill-category {
+        padding: 1.15rem;
+    }
+
+    .focus-panel {
+        padding: 0.9rem;
+    }
+
+    .focus-item {
+        padding: 0.9rem;
     }
 
     .highlight-grid,
-    .hero-stats,
     .skills-grid {
         grid-template-columns: 1fr;
     }
@@ -1230,6 +1412,33 @@ button {
     .experience-card,
     .education-card {
         grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1.15rem;
+    }
+
+    .experience-logo,
+    .education-logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .experience-meta,
+    .education-details {
+        gap: 0.45rem 0.8rem;
+        font-size: 0.82rem;
+    }
+
+    .project-header,
+    .project-body {
+        padding: 1.1rem;
+    }
+
+    .project-header {
+        min-height: auto;
+    }
+
+    .project-card li {
+        font-size: 0.93rem;
     }
 
     .education-period {
@@ -1244,9 +1453,44 @@ button {
         margin-top: 1rem;
     }
 
+    .contact-content {
+        gap: 0.9rem;
+    }
+
+    .contact-item {
+        align-items: flex-start;
+        padding: 0.75rem;
+    }
+
+    .contact-item-icon {
+        width: 2.25rem;
+        height: 2.25rem;
+        flex: 0 0 auto;
+    }
+
     .footer-container {
         flex-direction: column;
         align-items: flex-start;
+    }
+}
+
+@media (max-width: 360px) {
+    .logo {
+        max-width: 8.7rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .lang-switcher a {
+        min-width: 1.72rem;
+    }
+
+    .hero-name {
+        font-size: clamp(2.15rem, 13vw, 3.2rem);
+    }
+
+    .capability-rail {
+        grid-template-columns: 1fr;
     }
 }
 
