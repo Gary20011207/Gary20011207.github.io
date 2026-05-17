@@ -126,7 +126,20 @@ document.addEventListener("DOMContentLoaded", () => {
         let width = 0;
         let height = 0;
         let particles = [];
+        let codeColumns = [];
         let animationId = 0;
+        const codeSnippets = [
+            "async def build_service():",
+            "retriever.search(query, k=8)",
+            "agent.plan(tool_graph)",
+            "trace.eval(latency, faithfulness)",
+            "config = load_safe_context()",
+            "eda_rules.validate(spec)",
+            "cuda_stream.synchronize()",
+            "pytest tests/ai_workflow",
+            "rerank(passages, policy)",
+            "guardrails.check(output)",
+        ];
 
         function resizeCanvas() {
             const ratio = window.devicePixelRatio || 1;
@@ -135,12 +148,18 @@ document.addEventListener("DOMContentLoaded", () => {
             canvas.width = Math.floor(width * ratio);
             canvas.height = Math.floor(height * ratio);
             context.setTransform(ratio, 0, 0, ratio, 0, 0);
-            particles = Array.from({ length: Math.min(54, Math.max(28, Math.floor(width / 24))) }, (_, index) => ({
+            particles = Array.from({ length: Math.min(36, Math.max(18, Math.floor(width / 36))) }, (_, index) => ({
                 x: (index * 97) % Math.max(width, 1),
                 y: (index * 53) % Math.max(height, 1),
-                vx: 0.14 + (index % 4) * 0.035,
-                vy: 0.08 + (index % 5) * 0.025,
-                r: 1.2 + (index % 3) * 0.45,
+                vx: 0.08 + (index % 4) * 0.024,
+                vy: 0.05 + (index % 5) * 0.018,
+                r: 1 + (index % 3) * 0.36,
+            }));
+            codeColumns = Array.from({ length: Math.min(18, Math.max(8, Math.floor(width / 92))) }, (_, index) => ({
+                x: (index * 173) % Math.max(width, 1),
+                offset: (index * 89) % Math.max(height + 160, 1),
+                speed: 0.012 + (index % 5) * 0.003,
+                stride: 34 + (index % 3) * 7,
             }));
         }
 
@@ -154,14 +173,38 @@ document.addEventListener("DOMContentLoaded", () => {
             return isDark ? `rgba(251, 191, 36, ${alpha})` : `rgba(217, 119, 6, ${alpha})`;
         }
 
+        function codeColor(alpha) {
+            const isDark = root.dataset.theme === "dark";
+            return isDark ? `rgba(148, 163, 184, ${alpha})` : `rgba(30, 64, 175, ${alpha})`;
+        }
+
+        function drawCodeLayer(time) {
+            context.save();
+            context.font = "600 11px 'SFMono-Regular', Menlo, Consolas, monospace";
+            context.textBaseline = "top";
+
+            codeColumns.forEach((column, columnIndex) => {
+                const startY = ((time * column.speed + column.offset) % (height + 180)) - 140;
+                for (let row = 0; row < 6; row += 1) {
+                    const snippet = codeSnippets[(columnIndex + row * 2) % codeSnippets.length];
+                    const y = startY + row * column.stride;
+                    const fade = 1 - Math.min(Math.abs(y - height * 0.5) / Math.max(height * 0.65, 1), 1);
+                    context.fillStyle = codeColor(0.035 + fade * 0.075);
+                    context.fillText(snippet, column.x, y);
+                }
+            });
+
+            context.restore();
+        }
+
         function drawWaferArcs(time) {
             const centerX = width * 0.72;
             const centerY = height * 0.48;
             const base = Math.min(width, height) * 0.28;
             context.lineWidth = 1;
-            for (let i = 0; i < 6; i += 1) {
+            for (let i = 0; i < 5; i += 1) {
                 context.beginPath();
-                context.strokeStyle = i % 2 === 0 ? themeColor(0.15) : accentColor(0.12);
+                context.strokeStyle = i % 2 === 0 ? themeColor(0.09) : accentColor(0.07);
                 const radius = base + i * 26;
                 const start = 0.35 + Math.sin(time / 1200 + i) * 0.08;
                 context.arc(centerX, centerY, radius, start, start + Math.PI * 1.25);
@@ -171,6 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function animate(time) {
             context.clearRect(0, 0, width, height);
+            drawCodeLayer(time);
             drawWaferArcs(time);
 
             particles.forEach((particle) => {
@@ -185,9 +229,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     const a = particles[i];
                     const b = particles[j];
                     const distance = Math.hypot(a.x - b.x, a.y - b.y);
-                    if (distance < 145) {
+                    if (distance < 122) {
                         context.beginPath();
-                        context.strokeStyle = themeColor(0.16 * (1 - distance / 145));
+                        context.strokeStyle = themeColor(0.08 * (1 - distance / 122));
                         context.lineWidth = 1;
                         context.moveTo(a.x, a.y);
                         context.lineTo(b.x, b.y);
@@ -198,7 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             particles.forEach((particle, index) => {
                 context.beginPath();
-                context.fillStyle = index % 5 === 0 ? accentColor(0.45) : themeColor(0.44);
+                context.fillStyle = index % 5 === 0 ? accentColor(0.28) : themeColor(0.32);
                 context.arc(particle.x, particle.y, particle.r, 0, Math.PI * 2);
                 context.fill();
             });
