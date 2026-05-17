@@ -125,26 +125,26 @@ document.addEventListener("DOMContentLoaded", () => {
         const context = canvas.getContext("2d");
         let width = 0;
         let height = 0;
-        let rainColumns = [];
         let codeRows = [];
         let animationId = 0;
-        const rainTokens = [
-            "0", "1", "AI", "LLM", "RAG", "SOC", "EDA", "GPU", "CUDA", "eval", "idx", "fn",
-            "{", "}", "[]", "::", "=>", "k=8", "p95", "0x7f", "rank", "safe", "trace", "agent",
-        ];
+        const codeTags = ["rag", "agent", "eval", "cuda", "eda", "safe", "trace", "rank", "acl", "topK"];
         const codeSnippets = [
-            "$ ai-agent run --tools rag,eval,eda --guarded",
-            "retriever.topk(query, k=8).then(rerank.cross_encoder)",
-            "guardrails.check(output).require(source_trace=True)",
-            "trace.log({latency_ms:238, faithfulness:0.91})",
-            "cuda_stream.synchronize(); profile.bank_conflicts()",
-            "pytest workflows/test_agent_eval.py -q",
-            "vector_db.commit(namespace='public', acl='scoped')",
-            "human_review.enqueue(spec_diff, risk='medium')",
-            "eda_rules.validate(layout_pattern).emit_yaml()",
-            "agent.plan(task).use(['search', 'lint', 'eval'])",
-            "docker compose up ai-service --profile internal",
-            "fl_server.start(rounds=20, privacy='institutional')",
+            "async function buildAgentService(ctx) { return await planner.run(ctx); }",
+            "const hits = await retriever.search(query, { topK: 8, acl: 'scoped' });",
+            "answer = rag.generate(query, sources=rerank(hits), cite=True)",
+            "if (!guardrails.pass(answer)) throw new EvalError('human_review');",
+            "trace.span('eda.rules.validate').set({ latency_ms: 238, p95: 410 });",
+            "cudaStream.synchronize(); profiler.kernel('attention_fused');",
+            "pytest tests/workflows/test_agent_eval.py --maxfail=1 -q",
+            "vectorDb.commit({ namespace: 'public', policy: 'least-privilege' });",
+            "const spec = await tools.eda.emitYaml(layoutPattern, constraints);",
+            "ranker.score(passages).filter((p) => p.access === 'approved');",
+            "for await (const chunk of llm.stream(prompt)) renderToken(chunk);",
+            "assert privacy.boundary === 'institutional';",
+            "docker compose up ai-service --profile internal --detach",
+            "agent.plan(task).use(['search', 'lint', 'eval', 'review']);",
+            "metrics.observe({ usefulness, faithfulness, latency, safety });",
+            "loraAdapter.load('workflow-policy').merge({ dtype: 'bf16' });",
         ];
 
         function resizeCanvas() {
@@ -154,19 +154,12 @@ document.addEventListener("DOMContentLoaded", () => {
             canvas.width = Math.floor(width * ratio);
             canvas.height = Math.floor(height * ratio);
             context.setTransform(ratio, 0, 0, ratio, 0, 0);
-            rainColumns = Array.from({ length: Math.min(94, Math.max(42, Math.floor(width / 16))) }, (_, index) => ({
-                x: (index * 23 + (index % 7) * 13) % Math.max(width + 120, 1) - 60,
-                offset: (index * 89) % Math.max(height + 420, 1),
-                speed: 0.07 + (index % 9) * 0.018,
-                stride: 16 + (index % 4) * 3,
-                length: 12 + (index % 11),
-                phase: index % rainTokens.length,
-            }));
-            codeRows = Array.from({ length: Math.min(28, Math.max(14, Math.floor(height / 30))) }, (_, index) => ({
-                y: 74 + index * 32 + (index % 3) * 5,
-                offset: (index * 167) % Math.max(width + 900, 1),
-                speed: 0.018 + (index % 5) * 0.006,
-                direction: index % 2 === 0 ? 1 : -1,
+            codeRows = Array.from({ length: Math.min(34, Math.max(18, Math.floor(height / 25))) }, (_, index) => ({
+                x: 24 + (index % 5) * 58,
+                y: 72 + index * 25 + (index % 2) * 4,
+                phase: index * 11,
+                speed: 13 + (index % 6) * 2.2,
+                hold: 18 + (index % 5) * 5,
                 snippetIndex: index % codeSnippets.length,
             }));
         }
@@ -183,51 +176,40 @@ document.addEventListener("DOMContentLoaded", () => {
             return `rgba(${palettes[tone] || palettes.blue}, ${alpha})`;
         }
 
-        function drawCodeRain(time) {
-            context.save();
-            context.font = "700 12px 'SFMono-Regular', Menlo, Consolas, monospace";
-            context.textBaseline = "top";
-            context.shadowBlur = root.dataset.theme === "dark" ? 7 : 1.5;
-
-            rainColumns.forEach((column, columnIndex) => {
-                const headY = ((time * column.speed + column.offset) % (height + 420)) - 220;
-                for (let row = 0; row < column.length; row += 1) {
-                    const y = headY - row * column.stride;
-                    if (y < -40 || y > height + 40) {
-                        continue;
-                    }
-                    const token = rainTokens[(column.phase + columnIndex * 2 + row + Math.floor(time / 760)) % rainTokens.length];
-                    const fade = Math.max(0, 1 - row / column.length);
-                    const tone = row === 0 ? "green" : row % 4 === 0 ? "cyan" : "text";
-                    const alpha = (root.dataset.theme === "dark" ? 0.075 : 0.045) + fade * (root.dataset.theme === "dark" ? 0.34 : 0.22);
-                    context.shadowColor = themeColor(alpha, tone);
-                    context.fillStyle = themeColor(alpha, tone);
-                    context.fillText(token, column.x, y);
-                }
-            });
-
-            context.restore();
-        }
-
         function drawCodeRows(time) {
             const isDark = root.dataset.theme === "dark";
             context.save();
             context.font = "650 12px 'SFMono-Regular', Menlo, Consolas, monospace";
             context.textBaseline = "top";
+            context.shadowBlur = isDark ? 8 : 1.5;
 
             codeRows.forEach((row, index) => {
-                const snippet = codeSnippets[row.snippetIndex];
-                const repeated = `${snippet}   // ${rainTokens[(index * 5 + Math.floor(time / 1100)) % rainTokens.length]}   `;
-                const textWidth = context.measureText(repeated).width || 520;
-                const travel = width + textWidth * 2;
-                const raw = (row.offset + time * row.speed * 1000) % travel;
-                const x = row.direction > 0 ? raw - textWidth : width - raw;
-                const pulse = (Math.sin(time / 850 + index) + 1) / 2;
-                const alpha = (isDark ? 0.08 : 0.045) + pulse * (isDark ? 0.15 : 0.08);
-                context.fillStyle = index % 3 === 0 ? themeColor(alpha, "green") : themeColor(alpha, "cyan");
-                context.fillText(repeated, x, row.y);
-                context.fillText(repeated, x + textWidth + 40, row.y);
-                context.fillText(repeated, x - textWidth - 40, row.y);
+                const lineNumber = String(index + 1).padStart(2, "0");
+                const tag = codeTags[(index * 3 + Math.floor(time / 1600)) % codeTags.length];
+                const code = `${codeSnippets[row.snippetIndex]}    // ${tag}`;
+                const cycle = code.length + row.hold;
+                const progress = ((time / 1000) * row.speed + row.phase) % cycle;
+                const visibleChars = Math.min(code.length, Math.floor(progress));
+                const typed = code.slice(0, visibleChars);
+                const x = row.x;
+                const y = row.y;
+                const verticalFade = 1 - Math.min(Math.abs(y - height * 0.52) / Math.max(height * 0.72, 1), 1);
+                const ghostAlpha = (isDark ? 0.055 : 0.035) + verticalFade * (isDark ? 0.065 : 0.035);
+                const activeAlpha = (isDark ? 0.18 : 0.11) + verticalFade * (isDark ? 0.24 : 0.14);
+
+                context.shadowColor = "transparent";
+                context.fillStyle = themeColor(ghostAlpha, "text");
+                context.fillText(`${lineNumber}  ${code}`, x, y);
+
+                context.shadowColor = index % 3 === 0 ? themeColor(activeAlpha, "green") : themeColor(activeAlpha, "cyan");
+                context.fillStyle = themeColor(activeAlpha, index % 4 === 0 ? "green" : "cyan");
+                context.fillText(`${lineNumber}  ${typed}`, x, y);
+
+                if (visibleChars > 0 && (progress < code.length || Math.floor(time / 420 + index) % 2 === 0)) {
+                    const cursorX = x + context.measureText(`${lineNumber}  ${typed}`).width + 4;
+                    context.fillStyle = themeColor(isDark ? 0.55 : 0.34, "green");
+                    context.fillRect(cursorX, y + 1, 2, 13);
+                }
             });
             context.restore();
         }
@@ -249,7 +231,6 @@ document.addEventListener("DOMContentLoaded", () => {
             context.clearRect(0, 0, width, height);
             drawScanlines();
             drawCodeRows(time);
-            drawCodeRain(time);
 
             animationId = requestAnimationFrame(animate);
         }
